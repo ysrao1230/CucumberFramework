@@ -1,39 +1,36 @@
 package StepDefination;
 
+import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepDefination {
 
-	@Given("Navigate to the application")
-	public void navigate_to_the_application() {
-		// Write code here that turns the phrase above into concrete actions
-
-		System.out.println("Navigation to the application");
+	@Given("^Navigate to the application$")
+	public void navigate_to_the_application() throws Throwable {
+		System.out.println("Navigate to the application");
 	}
 
-	@When("ENter user name")
-	public void e_nter_user_name() {
-		// Write code here that turns the phrase above into concrete actions
-
-		System.out.println("Enter user name");
+	@When("^ENter user name (.+)$")
+	public void enter_user_name(String username) throws Throwable {
+		System.out.println("User name is: " + username);
 	}
 
-	@When("Enter password")
-	public void enter_password() {
-		// Write code here that turns the phrase above into concrete actions
-		System.out.println("Enter password");
+	@And("^Enter password (.+)$")
+	public void enter_password(String password) throws Throwable {
+		System.out.println("User name is: " + password);
 	}
 
-	@When("click on login button")
-	public void click_on_login_button() {
-		// Write code here that turns the phrase above into concrete actions
-		System.out.println("Clcik on login button");
+	@And("^click on login button$")
+	public void click_on_login_button() throws Throwable {
+		System.out.println("CLick on login Button");
 	}
 
-	@Then("Dashboard page displayed")
-	public void dashboard_page_displayed() {
-		System.out.println("Dashboard page displayed");
+	@Then("^Dashboard page displayed$")
+	public void dashboard_page_displayed() throws Throwable {
+		System.out.println("Dashboard page is displayed");
 	}
+
 }
