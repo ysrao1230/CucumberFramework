@@ -1,6 +1,7 @@
 package StepDefination;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,13 +9,12 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import junit.framework.Assert;
 
 public class loginAPIcal {
 
-	String BaseURL = "https://obsapi.onpassive.com";
-	String loginPayload;
+	public static String BaseURL = "https://obsapi.onpassive.com";
+	public static String loginPayload;
 	Response req;
 	String response;
 	JsonPath jp;
