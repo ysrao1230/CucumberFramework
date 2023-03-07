@@ -13,6 +13,21 @@ public class PagetitleValidation {
 
 	String pageTitle;
 
+	@Given("^Open the browser$")
+	public void open_the_browser() throws Throwable {
+		System.out.println("Open Browser");
+	}
+
+	@When("^navigate the respected URL$")
+	public void navigate_the_respected_url() throws Throwable {
+		System.out.println("Navigate the Resppected URL");
+	}
+
+	@Then("^browser is launched successfully$")
+	public void browser_is_launched_successfully() throws Throwable {
+		System.out.println("Browser and URL launched successfully");
+	}
+
 	@Given("Login to the application with valid user name and password")
 	public void login_to_the_application_with_valid_user_name_and_password(DataTable data) {
 		List<List<String>> d = data.asLists();
@@ -33,6 +48,12 @@ public class PagetitleValidation {
 		String expectredTitle = "Yamalapalli";
 		Assert.assertEquals(expectredTitle, pageTitle);
 
+	}
+
+	@Given("^Registering the Application with (.+) and (.+)$")
+	public void registering_the_application_with_and(String username, String password) throws Throwable {
+		System.out.println("Registered user name and password are");
+		System.out.println(username + " | " + password);
 	}
 
 }
