@@ -3,15 +3,26 @@ package StepDefination;
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 
+import Base.BasePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.LoginPage;
 
 public class PagetitleValidation {
 
 	String pageTitle;
+	WebDriver driver;
+	LoginPage lp;
+	BasePage basepage;
+
+	public PagetitleValidation(LoginPage lp, BasePage basepage) {
+		this.lp = lp;
+		this.basepage = basepage;
+	}
 
 	@Given("^Open the browser$")
 	public void open_the_browser() throws Throwable {
@@ -50,10 +61,12 @@ public class PagetitleValidation {
 
 	}
 
-	@Given("^Registering the Application with (.+) and (.+)$")
+	@Given("login to the Application with {string} and {string}")
 	public void registering_the_application_with_and(String username, String password) throws Throwable {
 		System.out.println("Registered user name and password are");
 		System.out.println(username + " | " + password);
+		basepage.browserIntialization("chrome");
+
 	}
 
 }

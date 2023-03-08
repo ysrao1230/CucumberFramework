@@ -1,10 +1,5 @@
 Feature: Login Validation
 
-  Background: Application browser access
-    Given Open the browser
-    When navigate the respected URL
-    Then browser is launched successfully
-
   @APITesting
   Scenario: Verify the login functionality
     Given Enter login payload
@@ -24,7 +19,7 @@ Feature: Login Validation
 
   @WebTesting
   Scenario Outline: Validate the APplication with the user name password
-    Given Registering the Application with <username> and <password>
+    Given login to the Application with "<username>" and "<password>"
     When Capture the page title
     Then Compare it with the expected value
 
