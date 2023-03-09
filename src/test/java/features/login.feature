@@ -10,7 +10,7 @@ Feature: Login Validation
     And "statusCode" in response body is "200"
     And get the token info
 
-  @WebTesting
+  
   Scenario Outline: Validate the APplication with the large set of data
     Given Login to the application with valid user name and password
       | yamalapalli1230@gmail.com | Admin@6765 |
@@ -25,6 +25,6 @@ Feature: Login Validation
 
     Examples: 
       | username                    | password      |
-      | yamalapalli1230@gmail.com   | Admin@6765    |
-      | rao.srinivasa@onpassive.com | Admin@123     |
+      | yamalapalli1230@gmail.com   | Admin@123/    |
+      | rao.srinivasa@onpassive.com | Admin@123/    |
       | raju@onpassive.com          | Admin@3747347 |

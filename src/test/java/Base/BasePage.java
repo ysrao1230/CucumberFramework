@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -13,13 +14,17 @@ public class BasePage {
 
 	public void browserIntialization(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			//options.addArguments("--headless");
+			options.addArguments("--remote-allow-origins=*");
+
+			driver = new ChromeDriver(options);
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("edge")) {
 			driver = new EdgeDriver();
 		} else {
-			System.out.println("Define  browser is the invalid browser");
+			System.out.println("Defined  browser is the invalid browser");
 		}
 
 		driver.get("https://ofounders.net/auth/login");

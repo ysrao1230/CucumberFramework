@@ -1,6 +1,6 @@
 Feature: Dashboard operation
 
-  @WebTesting
+ 
   Scenario: Validate the dash components
     Given Navigate to the dashboard
     When capture the user name and email address

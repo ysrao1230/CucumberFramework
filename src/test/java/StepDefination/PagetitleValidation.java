@@ -16,11 +16,10 @@ public class PagetitleValidation {
 
 	String pageTitle;
 	WebDriver driver;
-	LoginPage lp;
+	LoginPage loginPage;
 	BasePage basepage;
 
-	public PagetitleValidation(LoginPage lp, BasePage basepage) {
-		this.lp = lp;
+	public PagetitleValidation(BasePage basepage) {
 		this.basepage = basepage;
 	}
 
@@ -49,23 +48,27 @@ public class PagetitleValidation {
 	@When("Capture the page title")
 	public void capture_the_page_title() {
 		// Write code here that turns the phrase above into concrete actions
-		pageTitle = "Yamalapalli";
+		loginPage= new LoginPage(basepage);
+		pageTitle = loginPage.getPageTitle();
 		System.out.println("Page title is:> " + pageTitle);
 	}
 
 	@Then("Compare it with the expected value")
 	public void compare_it_with_the_expected_value() {
 		// Write code here that turns the phrase above into concrete actions
-		String expectredTitle = "Yamalapalli";
+		String expectredTitle = "O-Founders";
 		Assert.assertEquals(expectredTitle, pageTitle);
 
 	}
 
 	@Given("login to the Application with {string} and {string}")
 	public void registering_the_application_with_and(String username, String password) throws Throwable {
+		loginPage= new LoginPage(basepage);
 		System.out.println("Registered user name and password are");
 		System.out.println(username + " | " + password);
-		basepage.browserIntialization("chrome");
+		loginPage.userNameInput(username);
+		loginPage.passwordNameInput(password);
+		loginPage.loginButtonAction();
 
 	}
 
