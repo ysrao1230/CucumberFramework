@@ -10,13 +10,15 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.DashboardPage;
 import pageObjects.LoginPage;
 
 public class PagetitleValidation {
 
-	String pageTitle;
+	String greetingMessage;
 	WebDriver driver;
 	LoginPage loginPage;
+	DashboardPage dashboardPage;
 	BasePage basepage;
 
 	public PagetitleValidation(BasePage basepage) {
@@ -48,22 +50,35 @@ public class PagetitleValidation {
 	@When("Capture the page title")
 	public void capture_the_page_title() {
 		// Write code here that turns the phrase above into concrete actions
-		loginPage= new LoginPage(basepage);
-		pageTitle = loginPage.getPageTitle();
-		System.out.println("Page title is:> " + pageTitle);
+		dashboardPage = new DashboardPage(basepage);
+		greetingMessage = dashboardPage.getDashboardMessage();
+		System.out.println("Page title is:> " + greetingMessage);
 	}
 
 	@Then("Compare it with the expected value")
 	public void compare_it_with_the_expected_value() {
 		// Write code here that turns the phrase above into concrete actions
-		String expectredTitle = "O-Founders";
-		Assert.assertEquals(expectredTitle, pageTitle);
+		String expectredTitle = "Have a nice day at work!";
+		Assert.assertEquals(expectredTitle, greetingMessage);
 
+	}
+
+	@Then("Compare it with the expected values")
+	public void compare_it_with_the_expected_values() {
+		// Write code here that turns the phrase above into concrete actions
+		System.out.println("Compare it with the expected values");
+
+	}
+
+	@When("Capture the page titles")
+	public void capture_the_page_titles() {
+		// Write code here that turns the phrase above into concrete actions
+		System.out.println("Capture the Page title");
 	}
 
 	@Given("login to the Application with {string} and {string}")
 	public void registering_the_application_with_and(String username, String password) throws Throwable {
-		loginPage= new LoginPage(basepage);
+		loginPage = new LoginPage(basepage);
 		System.out.println("Registered user name and password are");
 		System.out.println(username + " | " + password);
 		loginPage.userNameInput(username);
