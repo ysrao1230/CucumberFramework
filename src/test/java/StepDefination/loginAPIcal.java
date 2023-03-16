@@ -34,7 +34,8 @@ public class loginAPIcal {
 	public void validate_the_response_code_as_200() throws Throwable {
 		response = req.then().log().all().extract().asString();
 		jp = new JsonPath(response);
-		System.out.println(jp.get("status"));
+		String getstatus = jp.get("status");
+		System.out.println(getstatus);
 		System.out.println("Status code is: " + jp.getString("statusCode"));
 	}
 
@@ -47,7 +48,7 @@ public class loginAPIcal {
 	@And("^get the token info$")
 	public void get_the_token_info() throws Throwable {
 		jp = new JsonPath(response);
-		System.out.println("Application access token is: "+jp.getString("data.accessToken"));
+		System.out.println("Application access token is: " + jp.getString("data.accessToken"));
 	}
 
 }

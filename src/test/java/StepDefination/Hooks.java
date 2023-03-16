@@ -60,8 +60,9 @@ public class Hooks {
 			File sourcePath = ((TakesScreenshot) basePage.driver).getScreenshotAs(OutputType.FILE);
 			byte[] fileAttach = FileUtils.readFileToByteArray(sourcePath);
 			scenario.attach(fileAttach, "image/png", "image");
+			System.out.println("Capturing the screenshot");
 		}
-		System.out.println("Capturing the screenshot");
+	
 
 	}
 }
