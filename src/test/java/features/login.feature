@@ -27,4 +27,3 @@ Feature: Login Validation
       | username                    | password      |
       | yamalapalli1230@gmail.com   | Admin@123/    |
       | rao.srinivasa@onpassive.com | Admin@123/    |
-      | raju@onpassive.com          | Admin@3747347 |

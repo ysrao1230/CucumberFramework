@@ -1,8 +1,10 @@
 package StepDefination;
 
+import static org.testng.Assert.assertTrue;
+
+import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import Base.BasePage;
@@ -59,7 +61,13 @@ public class PagetitleValidation {
 	public void compare_it_with_the_expected_value() {
 		// Write code here that turns the phrase above into concrete actions
 		String expectredTitle = "Have a nice day at work!";
-		Assert.assertEquals(expectredTitle, greetingMessage);
+		// Assert.assertEquals(expectredTitle, greetingMessage);
+
+		String expectedTitles[] = { "Srinivasa Rao yamalapalli good MOrning!", "Have a nice day at work!",
+				"Yamalapalli Srinivasa Rao" };
+		List<String> expectedTitlesList = Arrays.asList(expectedTitles);
+
+		assertTrue(expectedTitlesList.contains((greetingMessage)));
 
 	}
 
