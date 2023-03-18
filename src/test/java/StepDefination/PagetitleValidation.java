@@ -60,7 +60,7 @@ public class PagetitleValidation {
 	@Then("Compare it with the expected value")
 	public void compare_it_with_the_expected_value() {
 		// Write code here that turns the phrase above into concrete actions
-		String expectredTitle = "Have a nice day at work!";
+		// String expectredTitle = "Have a nice day at work!";
 		// Assert.assertEquals(expectredTitle, greetingMessage);
 
 		String expectedTitles[] = { "Srinivasa Rao yamalapalli good MOrning!", "Have a nice day at work!",
@@ -93,6 +93,31 @@ public class PagetitleValidation {
 		loginPage.passwordNameInput(password);
 		loginPage.loginButtonAction();
 
+	}
+
+	@Then("close the dasboardpopup window")
+	public void close_the_dasboardpopup_window() {
+		// Write code here that turns the phrase above into concrete actions
+		dashboardPage = new DashboardPage(basepage);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dashboardPage.closepopupicon();
+		System.out.println("Popup  Closed successfully");
+	}
+
+	@Given("login to the Application with username and password")
+	public void login_to_the_application_with_username_and_password(DataTable dataTable) {
+		List<List<String>> d = dataTable.asLists();
+		loginPage = new LoginPage(basepage);
+		System.out.println("Registered user name and password are");
+		System.out.println(d.get(0).get(0) + " | " + d.get(0).get(1));
+		loginPage.userNameInput(d.get(0).get(0));
+		loginPage.passwordNameInput(d.get(0).get(1));
+		loginPage.loginButtonAction();
 	}
 
 }

@@ -14,6 +14,12 @@ public class DashboardPage {
 
 	By closePopup = By.xpath("//button[@aria-label='Close']");
 	By greetingMessage = By.xpath("//h5[normalize-space()='Have a nice day at work!']");
+	By greetingWithUserName=By.xpath("//div[@class='d-profile-details']/h6");
+	
+	
+	public String gettingTheGreetingMessageWithUserName() {
+		return basepage.gettingWebElements(greetingWithUserName).getText();
+	}
 
 	public void closepopupicon() {
 		basepage.gettingWebElements(closePopup).click();

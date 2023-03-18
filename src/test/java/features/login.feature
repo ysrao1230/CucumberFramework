@@ -1,5 +1,10 @@
 Feature: Login Validation
 
+  Background: login to the application
+    Given login to the Application with username and password
+      | yamalapalli1230@gmail.com   | Admin@123/ |
+      | rao.srinivasa@onpassive.com | Admin@123/ |
+
   @APITesting
   Scenario: Verify the login functionality
     Given Enter login payload
@@ -18,12 +23,16 @@ Feature: Login Validation
     Then Compare it with the expected values
 
   @WebTesting
-  Scenario Outline: Validate the APplication with the user name password
-    Given login to the Application with "<username>" and "<password>"
+  Scenario Outline: Validate the application dashboard greeting message
     When Capture the page title
+    And close the dasboardpopup window
     Then Compare it with the expected value
 
-    Examples: 
-      | username                    | password      |
-      | yamalapalli1230@gmail.com   | Admin@123/    |
-      | rao.srinivasa@onpassive.com | Admin@123/    |
+  @WebTesting
+  Scenario: Closing the dashboard popup window
+    Then close the dasboardpopup window
+
+  @WebTesting
+  Scenario: Getting the dashboard
+    Given close the dasboardpopup window
+    Then get the dashboard greeting message with the user name
