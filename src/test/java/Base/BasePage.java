@@ -17,7 +17,7 @@ public class BasePage {
 	public void browserIntialization(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
-		//	options.addArguments("--headless");
+			options.addArguments("--headless");
 			options.addArguments("--remote-allow-origins=*");
 
 			driver = new ChromeDriver(options);
