@@ -15,6 +15,7 @@ public class ProgramPractice {
 		Integer m[] = { 9, 1, 3, 6, 8, 0 };
 		missingnumberintheArray(m);
 		reverseAString();
+		swappingvaluewithoutthirdvariable();
 
 	}
 
@@ -95,7 +96,20 @@ public class ProgramPractice {
 		char[] ch = input.toCharArray();
 		System.out.println("Reversing the string using the character array:=> ");
 		for (int i = ch.length - 1; i >= 0; i--) 
-			System.out.print( ch[i]);		
-
+			System.out.print( ch[i]);
+	}
+	public static void swappingvaluewithoutthirdvariable() {
+		Scanner n1= new Scanner(System.in);
+		int num1= n1.nextInt();
+		Scanner n2= new  Scanner(System.in);
+		int num2= n2.nextInt();
+		
+		num1=num1+num2;
+		num2=num1-num2;
+		num1=num1-num2;
+		
+		System.out.println("AFter swapping values");
+		System.out.println(num1);
+		System.out.println(num2);
 	}
 }
