@@ -3,6 +3,7 @@ package Cucumber.Automation;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Scanner;
 
 public class ProgramPractice {
 
@@ -13,6 +14,7 @@ public class ProgramPractice {
 
 		Integer m[] = { 9, 1, 3, 6, 8, 0 };
 		missingnumberintheArray(m);
+		reverseAString();
 
 	}
 
@@ -69,5 +71,31 @@ public class ProgramPractice {
 		System.out.println("Numbers in a String: " + number);
 		System.out.println("Alphabets in a string: " + alph);
 		System.out.println("SPecial characters in a string: " + symbol);
+	}
+
+	public static void reverseAString() {
+		Scanner str = new Scanner(System.in);
+		System.out.println("*******Please enter input string********");
+		String input = str.nextLine();
+		String reverse = "";
+		for (int i = 0; i < input.length(); i++) {
+			Character ch;
+			ch = input.charAt(i);
+			reverse = ch + reverse;
+		}
+		System.out.println("AFter reversing the string is: " + reverse);
+
+		// Reversing the string using the string build
+		StringBuilder strb = new StringBuilder();
+		strb.append(input);
+		strb.reverse();
+		System.out.println("Reversing the String using the String builder:=> " + strb);
+
+		// Reversing the string using the chararray
+		char[] ch = input.toCharArray();
+		System.out.println("Reversing the string using the character array:=> ");
+		for (int i = ch.length - 1; i >= 0; i--) 
+			System.out.print( ch[i]);		
+
 	}
 }
