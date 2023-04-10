@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
+		reversingtheEachWord("Siva rama raju");
 		separatenumberchardigit("yagdg#$%^6253536dFGHJ66473");
 		int a[] = { 2, 3, 4, 2, 3, 4, 4, 4, 45, 4, 4, 4, 4, 4 };
 		System.out.println("Majority of elements= " + majorityElementsinArray(a, a.length));
@@ -16,6 +17,7 @@ public class ProgramPractice {
 		missingnumberintheArray(m);
 		reverseAString();
 		swappingvaluewithoutthirdvariable();
+		System.out.println("Fibonic series given input is: " + fibinocseries(0));
 
 	}
 
@@ -95,21 +97,66 @@ public class ProgramPractice {
 		// Reversing the string using the chararray
 		char[] ch = input.toCharArray();
 		System.out.println("Reversing the string using the character array:=> ");
-		for (int i = ch.length - 1; i >= 0; i--) 
-			System.out.print( ch[i]);
+		for (int i = ch.length - 1; i >= 0; i--)
+			System.out.print(ch[i]);
+
 	}
+
+	public static void reversingtheEachWord(String data) {
+		// Reversing each word in the given string
+		/*
+		 * System.out.println("Please enter the string with different words"); Scanner
+		 * value = new Scanner(System.in); String data = value.next();
+		 */
+		String[] words = data.split(" ");
+        
+        String reverseString = "";
+         
+        for (int i = 0; i < words.length; i++) 
+        {
+            String word = words[i];
+             
+            String reverseWord = "";
+             
+            for (int j = word.length()-1; j >= 0; j--) 
+            {
+                reverseWord = reverseWord + word.charAt(j);
+            }
+             
+            reverseString = reverseString + reverseWord + " ";
+        }
+         
+        System.out.println(data);
+         
+        System.out.println(reverseString);
+         
+        System.out.println("-------------------------");
+	}
+
 	public static void swappingvaluewithoutthirdvariable() {
-		Scanner n1= new Scanner(System.in);
-		int num1= n1.nextInt();
-		Scanner n2= new  Scanner(System.in);
-		int num2= n2.nextInt();
-		
-		num1=num1+num2;
-		num2=num1-num2;
-		num1=num1-num2;
-		
+		Scanner n1 = new Scanner(System.in);
+		int num1 = n1.nextInt();
+		Scanner n2 = new Scanner(System.in);
+		int num2 = n2.nextInt();
+
+		num1 = num1 + num2;
+		num2 = num1 - num2;
+		num1 = num1 - num2;
+
 		System.out.println("AFter swapping values");
 		System.out.println(num1);
 		System.out.println(num2);
+	}
+
+	public static int fibinocseries(int n) {
+		int a = 0, b = 1, c;
+		if (n == 0)
+			return a;
+		for (int i = 2; i <= n; i++) {
+			c = a + b;
+			a = b;
+			b = c;
+		}
+		return b;
 	}
 }
