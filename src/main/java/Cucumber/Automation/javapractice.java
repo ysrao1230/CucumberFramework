@@ -5,7 +5,7 @@ public class javapractice {
 
     public static void main(String[] args) {
         //Reverse a word
-        String str="abba";
+        String str="blab";
         String reverse="";
         char ch;
         for(int i=0;i<str.length();i++){
@@ -57,5 +57,20 @@ public class javapractice {
             strrevers=strrevers+strrev+" ";
         }
         System.out.println(strrevers);
+
+        //Palindrom of the integer
+        int r,sum=0,temp;
+        int num=75847;//It is the number variable to be checked for palindrome
+
+        temp=num;
+        while (num > 0) {
+            r=num%10;  //getting remainder
+            sum=(sum*10)+r;
+            num=num/10;
+        }
+        if(temp==sum)
+            System.out.println("palindrome number ");
+        else
+            System.out.println("not palindrome");
     }
 }
