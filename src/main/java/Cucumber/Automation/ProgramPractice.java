@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
-		reversingtheEachWord("Siva rama raju");
+		sumoftwoMatrices();
+		reversingtheEachWord();
 		separatenumberchardigit("yagdg#$%^6253536dFGHJ66473");
 		int a[] = { 2, 3, 4, 2, 3, 4, 4, 4, 45, 4, 4, 4, 4, 4 };
 		System.out.println("Majority of elements= " + majorityElementsinArray(a, a.length));
@@ -102,12 +103,11 @@ public class ProgramPractice {
 
 	}
 
-	public static void reversingtheEachWord(String data) {
+	public static void reversingtheEachWord() {
 		// Reversing each word in the given string
-		/*
-		 * System.out.println("Please enter the string with different words"); Scanner
-		 * value = new Scanner(System.in); String data = value.next();
-		 */
+		  System.out.println("Please enter the string with different words");
+		  Scanner   value = new Scanner(System.in);
+		   String data = value.next();
 		String[] words = data.split(" ");
         
         String reverseString = "";
@@ -158,5 +158,20 @@ public class ProgramPractice {
 			b = c;
 		}
 		return b;
+	}
+
+	public static void sumoftwoMatrices(){
+		int a[][]={{1,1,1},{2,2,2},{3,3,3}};
+		int b[][]={{1,1,1},{2,2,2},{3,3,3}};
+
+		int c[][]= new int[3][3];
+
+		for (int i=0;i<3;i++){
+			for (int j=0;j<3;j++){
+				c[i][j]=a[i][j]+b[i][j];
+				System.out.print(c[i][j]);
+			}
+			System.out.println();
+		}
 	}
 }
