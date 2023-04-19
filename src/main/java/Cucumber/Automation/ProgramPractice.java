@@ -18,7 +18,7 @@ public class ProgramPractice {
 		missingnumberintheArray(m);
 		reverseAString();
 		swappingvaluewithoutthirdvariable();
-		System.out.println("Fibonic series given input is: " + fibinocseries(0));
+		System.out.println("Fibonic series given input is: " + fibinocseries(8));
 
 	}
 
