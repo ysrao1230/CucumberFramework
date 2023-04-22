@@ -1,9 +1,12 @@
 package Cucumber.Automation;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.Iterator;
@@ -14,7 +17,7 @@ public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
 	public static void main(String[] args) {
-		clickingontheLinksOfthePage();
+		calenderDateSelection();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -56,6 +59,42 @@ public class SeleniumPracticeCocepts {
 			driver.switchTo().window(it.next());
 			System.out.println("Page title is: " + driver.getTitle());
 			System.out.println("data");
+		}
+	}
+
+	public static void calenderDateSelection() {
+		driver = new ChromeDriver();
+		driver.get("https://www.spicejet.com/");
+
+		isAlertPresent();
+
+		// Date Field Selection
+		driver.findElement(By.xpath("//div[normalize-space()='Departure Date']")).click();
+
+		// Get the list of dates in the date picker and then select teh required date.
+		List<WebElement> dates = driver.findElements(By.xpath("//div[contains(@data-testid,'calendar-day')]"));
+		int dateSize = dates.size();
+		System.out.println("Date size is: " + dateSize);
+		for (int i = 0; i <= dateSize; i++) {
+			String datetext = driver.findElements(By.xpath("//div[contains(@data-testid,'calendar-day')]")).get(i)
+					.getText();
+			System.out.println("Dates Are: " + datetext);
+			if (datetext.equalsIgnoreCase("26")) {
+				driver.findElements(By.xpath("//div[contains(@data-testid,'calendar-day')]")).get(i).click();
+				break;
+			}
+
+		}
+
+	}
+
+	public static void isAlertPresent() {
+		try {
+			Alert alert = driver.switchTo().alert();
+			System.out.println(alert.getText() + " Alert is Displayed");
+			alert.accept();
+		} catch (NoAlertPresentException ex) {
+			System.out.println("Alert is NOT Displayed");
 		}
 	}
 }
