@@ -1,0 +1,17 @@
+<-Git Configuration issue->
+If git getting problem with the pushing and comiting the code, follow these steps
+
+1.Navigate to the GitAccount
+2,Setting
+3.Developers tools
+4. Generate the Token
+5. Copy the generated token
+--
+Open the failed to connect project
+Select the righ click and select the team
+Select remote
+Select configure to upstream
+Select change option beside the selected rpository
+Update the password/old token with the newely generated token
+Then select the commit and push
+Successfully  It will work 
