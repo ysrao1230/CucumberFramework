@@ -1,5 +1,9 @@
 package Cucumber.Automation;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,16 +11,13 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		calenderDateSelection();
 	}
 
@@ -62,11 +63,12 @@ public class SeleniumPracticeCocepts {
 		}
 	}
 
-	public static void calenderDateSelection() {
-		driver = new ChromeDriver();
+	public static void calenderDateSelection() throws InterruptedException {
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications");
+		driver = new ChromeDriver(options);
 		driver.get("https://www.spicejet.com/");
-
-		isAlertPresent();
+		Thread.sleep(6000);
 
 		// Date Field Selection
 		driver.findElement(By.xpath("//div[normalize-space()='Departure Date']")).click();
@@ -85,6 +87,10 @@ public class SeleniumPracticeCocepts {
 			}
 
 		}
+		String enteredDateValue = driver.findElement(By.xpath(
+				"/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]"))
+				.getText();
+		System.out.println("Selected Date is:=>" + enteredDateValue);
 
 	}
 
