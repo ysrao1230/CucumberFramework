@@ -1,13 +1,20 @@
 package Cucumber.Automation;
 
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +24,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		calenderDateSelection();
 	}
 
@@ -63,16 +70,21 @@ public class SeleniumPracticeCocepts {
 		}
 	}
 
-	public static void calenderDateSelection() throws InterruptedException {
+	public static void calenderDateSelection() throws InterruptedException, IOException {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		driver = new ChromeDriver(options);
 		driver.get("https://www.spicejet.com/");
-		Thread.sleep(6000);
+		Thread.sleep(1000);
 
 		// Date Field Selection
 		driver.findElement(By.xpath("//div[normalize-space()='Departure Date']")).click();
 
+//		while (!driver.findElement(By.xpath("//*[@class='css-1dbjc4n r-1euycsn']")).getText().contains("August")) {
+//			System.out.println(driver.findElement(By.xpath("//*[@class='css-1dbjc4n r-1euycsn']")).getText());
+//			driver.findElement(By.xpath("(//*[@fill-rule='evenodd'])[9]")).click();
+//			Thread.sleep(1500);
+//		}
 		// Get the list of dates in the date picker and then select teh required date.
 		List<WebElement> dates = driver.findElements(By.xpath("//div[contains(@data-testid,'calendar-day')]"));
 		int dateSize = dates.size();
@@ -92,6 +104,12 @@ public class SeleniumPracticeCocepts {
 				.getText();
 		System.out.println("Selected Date is:=>" + enteredDateValue);
 
+		// Takescreenshot
+
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File dest = new File("./Screenshots/test_"+currentDate()+".png");
+		FileUtils.copyFile(srcFile, dest);
+
 	}
 
 	public static void isAlertPresent() {
@@ -102,5 +120,13 @@ public class SeleniumPracticeCocepts {
 		} catch (NoAlertPresentException ex) {
 			System.out.println("Alert is NOT Displayed");
 		}
+		
+	}
+	
+	//Current Local Date and time
+	public static  String currentDate() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");  
+		   LocalDateTime now = LocalDateTime.now();  
+		   return dtf.format(now);
 	}
 }
