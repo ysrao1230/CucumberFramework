@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
+		leapYear();
 		sumoftwoMatrices();
 		reversingtheEachWord();
 		separatenumberchardigit("yagdg#$%^6253536dFGHJ66473");
@@ -105,32 +106,31 @@ public class ProgramPractice {
 
 	public static void reversingtheEachWord() {
 		// Reversing each word in the given string
-		  System.out.println("Please enter the string with different words");
-		  Scanner   value = new Scanner(System.in);
-		   String data = value.next();
+		System.out.println("Please enter the string with different words");
+		@SuppressWarnings("resource")
+		Scanner value = new Scanner(System.in);
+		String data = value.nextLine();
 		String[] words = data.split(" ");
-        
-        String reverseString = "";
-         
-        for (int i = 0; i < words.length; i++) 
-        {
-            String word = words[i];
-             
-            String reverseWord = "";
-             
-            for (int j = word.length()-1; j >= 0; j--) 
-            {
-                reverseWord = reverseWord + word.charAt(j);
-            }
-             
-            reverseString = reverseString + reverseWord + " ";
-        }
-         
-        System.out.println(data);
-         
-        System.out.println(reverseString);
-         
-        System.out.println("-------------------------");
+
+		String reverseString = "";
+
+		for (int i = 0; i < words.length; i++) {
+			String word = words[i];
+
+			String reverseWord = "";
+
+			for (int j = word.length() - 1; j >= 0; j--) {
+				reverseWord = reverseWord + word.charAt(j);
+			}
+
+			reverseString = reverseString + reverseWord + " ";
+		}
+
+		System.out.println(data);
+
+		System.out.println(reverseString);
+
+		System.out.println("-------------------------");
 	}
 
 	public static void swappingvaluewithoutthirdvariable() {
@@ -160,18 +160,30 @@ public class ProgramPractice {
 		return b;
 	}
 
-	public static void sumoftwoMatrices(){
-		int a[][]={{1,1,1},{2,2,2},{3,3,3}};
-		int b[][]={{1,1,1},{2,2,2},{3,3,3}};
+	public static void sumoftwoMatrices() {
+		int a[][] = { { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 } };
+		int b[][] = { { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 } };
 
-		int c[][]= new int[3][3];
+		int c[][] = new int[3][3];
 
-		for (int i=0;i<3;i++){
-			for (int j=0;j<3;j++){
-				c[i][j]=a[i][j]+b[i][j];
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				c[i][j] = a[i][j] + b[i][j];
 				System.out.print(c[i][j]);
 			}
 			System.out.println();
+		}
+	}
+
+	public static void leapYear() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please eneter the year");
+		int year = s.nextInt();
+
+		if (year % 4 == 0 || year / 400 == 0 && year / 100 != 0) {
+			System.out.println(year + " is a Leap year");
+		} else {
+			System.out.println(year + " is not a Leap year");
 		}
 	}
 }
