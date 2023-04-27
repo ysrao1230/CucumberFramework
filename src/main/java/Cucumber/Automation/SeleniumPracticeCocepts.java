@@ -2,6 +2,10 @@ package Cucumber.Automation;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
@@ -11,6 +15,7 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
@@ -19,13 +24,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		calenderDateSelection();
+		brokenLinks();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -76,6 +84,8 @@ public class SeleniumPracticeCocepts {
 		driver = new ChromeDriver(options);
 		driver.get("https://www.spicejet.com/");
 		Thread.sleep(1000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,200)");
 
 		// Date Field Selection
 		driver.findElement(By.xpath("//div[normalize-space()='Departure Date']")).click();
@@ -103,12 +113,7 @@ public class SeleniumPracticeCocepts {
 				"/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]"))
 				.getText();
 		System.out.println("Selected Date is:=>" + enteredDateValue);
-
-		// Takescreenshot
-
-		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File dest = new File("./Screenshots/test_"+currentDate()+".png");
-		FileUtils.copyFile(srcFile, dest);
+		takeAScreenShot();
 
 	}
 
@@ -120,13 +125,80 @@ public class SeleniumPracticeCocepts {
 		} catch (NoAlertPresentException ex) {
 			System.out.println("Alert is NOT Displayed");
 		}
-		
+
 	}
-	
-	//Current Local Date and time
-	public static  String currentDate() {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");  
-		   LocalDateTime now = LocalDateTime.now();  
-		   return dtf.format(now);
+
+	// Current Local Date and time
+	public static String currentDate() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");
+		LocalDateTime now = LocalDateTime.now();
+		return dtf.format(now);
+	}
+
+	// SUm of the Total Values of the table column
+	public static void sumofCoulumnValues() throws InterruptedException, IOException {
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,450)");
+		Thread.sleep(3000);
+		List<WebElement> priceValues = driver.findElements(By.cssSelector(".table-display td:nth-child(3)"));
+
+		int sum = 0;
+		for (int i = 0; i < priceValues.size(); i++) {
+			sum = sum + Integer.parseInt(priceValues.get(i).getText());
+		}
+
+		System.out.println("Sum of the Cource Price: " + sum);
+
+		int totalSum = Integer
+				.parseInt(driver.findElement(By.cssSelector("div.totalAmount")).getText().split(":")[1].trim());
+
+		System.out.println("Total of position amount: " + totalSum);
+		takeAScreenShot();
+	}
+
+	public static void takeAScreenShot() throws IOException {
+		// Takescreenshot
+
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File dest = new File("./Screenshots/test_" + currentDate() + ".png");
+		FileUtils.copyFile(srcFile, dest);
+	}
+
+	public static void brokenLinks() throws MalformedURLException, IOException {
+		driver = new EdgeDriver();
+
+		driver.get("https:/onpassive.com");
+		List<WebElement> alllinks = driver.findElements(By.tagName("a"));
+		SoftAssert a = new SoftAssert();
+		int i = 1;
+		for (WebElement link : alllinks) {
+			try {
+				String url = link.getAttribute("href");
+				HttpURLConnection connect = (HttpURLConnection) new URL(url).openConnection();
+				connect.setRequestMethod("HEAD");
+				connect.connect();
+				int responsecode = connect.getResponseCode();
+				System.out.println(i + ". " + url + " " + responsecode);
+				a.assertTrue(responsecode < 400, i + ". The link with text " +url
+						+ "is broken with the response code: " + responsecode);
+				i++;
+			} catch (MalformedURLException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			} catch (ProtocolException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+		}
+		a.assertAll();
 	}
 }
