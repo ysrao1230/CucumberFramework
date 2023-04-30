@@ -10,11 +10,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import utils.AppConfig;
+
 public class BasePage {
 
-	public WebDriver driver;
+	public WebDriver driver = null;
 
-	public void browserIntialization(String browserName) {
+	public void browserIntialization() {
+
+		String browserName = AppConfig.browserName;
+
 		if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
@@ -29,11 +34,14 @@ public class BasePage {
 			System.out.println("Defined  browser is the invalid browser");
 		}
 
-		driver.get("https://ofounders.net/auth/login");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		if (driver != null) {
+			driver.get(AppConfig.url);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		}
+
 	}
-	
+
 	public WebElement gettingWebElements(By xpath) {
 		return driver.findElement(xpath);
 	}

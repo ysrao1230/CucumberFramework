@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
@@ -26,7 +27,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public class SeleniumPracticeCocepts {
@@ -43,6 +43,7 @@ public class SeleniumPracticeCocepts {
 
 		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
 		int sizeOflinks = allLinks.size();
+		System.out.println("Page link size is: " + sizeOflinks);
 		System.out.println("Total number of links on the Page:=> " + sizeOflinks);
 
 		for (int i = 1; i <= sizeOflinks; i++) {
@@ -170,11 +171,18 @@ public class SeleniumPracticeCocepts {
 		FileUtils.copyFile(srcFile, dest);
 	}
 
-	public static void brokenLinks() throws MalformedURLException, IOException {
+	public static void brokenLinks() throws MalformedURLException, IOException, InterruptedException {
 		driver = new EdgeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		// driver.get("https:/onpassive.com");
 
-		driver.get("https:/onpassive.com");
+		driver.get("https://www.flipkart.com/");
+
+		// this below action for the FLipkart only
+		driver.findElement(By.cssSelector("button[class='_2KpZ6l _2doB4z']")).click();
+		Thread.sleep(2000);
 		List<WebElement> alllinks = driver.findElements(By.tagName("a"));
+		System.out.println("Page links size: " + alllinks.size());
 		SoftAssert a = new SoftAssert();
 		int i = 1;
 		for (WebElement link : alllinks) {
@@ -185,8 +193,8 @@ public class SeleniumPracticeCocepts {
 				connect.connect();
 				int responsecode = connect.getResponseCode();
 				System.out.println(i + ". " + url + " " + responsecode);
-				a.assertTrue(responsecode < 400, i + ". The link with text " +url
-						+ "is broken with the response code: " + responsecode);
+				a.assertTrue(responsecode < 400,
+						i + ". The link with text " + url + "is broken with the response code: " + responsecode);
 				i++;
 			} catch (MalformedURLException e) {
 				System.out.println(e.getMessage());

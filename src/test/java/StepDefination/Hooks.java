@@ -38,7 +38,7 @@ public class Hooks {
 	@Before("@WebTesting")
 	public void beforewebTesting() {
 		System.out.println("Start the Web  Testing using hooks \r\n");
-		basePage.browserIntialization("CHROME");
+		basePage.browserIntialization();
 	}
 
 	@After("@WebTesting")
