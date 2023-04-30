@@ -21,11 +21,14 @@ public class BasePage {
 		String browserName = AppConfig.browserName;
 
 		if (browserName.equalsIgnoreCase("chrome")) {
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");
-			options.addArguments("--remote-allow-origins=*");
-
-			driver = new ChromeDriver(options);
+			/*
+			 * ChromeOptions options = new ChromeOptions();
+			 * options.addArguments("--headless");
+			 * options.addArguments("--remote-allow-origins=*");
+			 * 
+			 * driver = new ChromeDriver(options);
+			 */
+			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("edge")) {
@@ -35,6 +38,7 @@ public class BasePage {
 		}
 
 		if (driver != null) {
+			System.out.println(AppConfig.url);
 			driver.get(AppConfig.url);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

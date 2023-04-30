@@ -15,11 +15,14 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import pageObjects.LoginPage;
+import utils.AppConfig;
 
 public class Hooks {
 
 	BasePage basePage;
-	WebDriver driver;
+	LoginPage loginPage;
+	// WebDriver driver;
 
 	public Hooks(BasePage basePage) {
 		this.basePage = basePage;
@@ -39,6 +42,10 @@ public class Hooks {
 	public void beforewebTesting() {
 		System.out.println("Start the Web  Testing using hooks \r\n");
 		basePage.browserIntialization();
+		loginPage = new LoginPage(basePage);
+		loginPage.userNameInput(AppConfig.userName);
+		loginPage.passwordNameInput(AppConfig.passWord);
+		loginPage.loginButtonAction();
 	}
 
 	@After("@WebTesting")
@@ -62,7 +69,6 @@ public class Hooks {
 			scenario.attach(fileAttach, "image/png", "image");
 			System.out.println("Capturing the screenshot");
 		}
-	
 
 	}
 }
