@@ -23,6 +23,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -33,7 +34,7 @@ public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		brokenLinks();
+		multipleWindowAccess();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -50,7 +51,8 @@ public class SeleniumPracticeCocepts {
 			String linkText = driver.findElement(By.tagName("a")).getAttribute("href");
 			System.out.println(i + " " + linkText);
 		}
-		WebElement socialmediaObject = driver.findElement(By.className("footer-social-links"));
+		// WebElement socialmediaObject =
+		// driver.findElement(By.className("footer-social-links"));
 		WebElement headerLinks = driver.findElement(By.xpath("//*[@id='navbarText']/ul"));
 		List<WebElement> socialmedialink = headerLinks.findElements(By.tagName("a"));
 		System.out.println("Size of the socialmedia links: " + socialmedialink.size());
@@ -208,5 +210,49 @@ public class SeleniumPracticeCocepts {
 			}
 		}
 		a.assertAll();
+	}
+
+	public static void multipleWindowAccess() throws IOException, InterruptedException {
+
+		browserIntilaization("chrome");
+		driver.get("https://www.sakshi.com/");
+		System.out.println(driver.findElements(By.cssSelector("span[class='field-content']")).get(20).getText());
+		driver.switchTo().newWindow(WindowType.TAB);
+		Set<String> browser = driver.getWindowHandles();
+
+		Iterator<String> it = browser.iterator();
+
+		String parentWindow = it.next();
+		String childWindow = it.next();
+		driver.switchTo().window(childWindow);
+		driver.get("https:google.com");
+		String pageTitle = driver.getTitle();
+		Thread.sleep(3000);
+		driver.close();
+		driver.switchTo().window(parentWindow);
+		WebElement search = driver.findElement(By.cssSelector("input[id='term']"));
+		search.sendKeys(pageTitle);
+		// Partial screenshot based on the WebElement
+		File src = search.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File("test_" + currentDate() + ".png"));
+		takeAScreenShot();
+		Thread.sleep(2000);
+		driver.quit();
+
+	}
+
+	public static void browserIntilaization(String browser) {
+		if (browser.contains("chrome")) {
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-notifications");
+			driver = new ChromeDriver(options);
+		} else if (browser.contains("firefox")) {
+			driver = new FirefoxDriver();
+		} else if (browser.contains("edge")) {
+			driver = new EdgeDriver();
+		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
 	}
 }
