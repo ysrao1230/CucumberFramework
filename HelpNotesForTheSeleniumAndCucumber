@@ -8,18 +8,19 @@ If git getting problem with the pushing and comiting the code, follow these step
 5. Copy the generated token
 --
 Open the failed to connect project
-Select the righ click and select the team
+Select the right click and select the team
 Select remote
 Select configure to upstream
-Select change option beside the selected rpository
-Update the password/old token with the newely generated token
+Select change option beside the selected repository
+Update the password/old token with the new generated token
 Then select the commit and push
 Successfully  It will work 
 
-// Calender Month selection using the while loop match the expected Month.
+// Calendar Month selection using the while loop match the expected Month.
 
 --> Maven command line execution with the parameters
-1. Intialize the browser information in the base page using the system.getProperties("Argument1","Argument2")
+1. Initialize the browser information in the base page using the system.getProperties("Argument1","Argument2")
 
 Command to execute is the: mvn test -Dtest=package.classname(What ever we want execute) -Dbrowser=browservalue
+
 --> For cucumber Hooks execution to be called at testRUnner level or Hooks level, defined in both levels, it will run multiple time
