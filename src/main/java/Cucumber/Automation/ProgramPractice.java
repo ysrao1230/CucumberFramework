@@ -1,5 +1,7 @@
 package Cucumber.Automation;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -8,6 +10,8 @@ import java.util.Scanner;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
+		duplicateValuesInaArray();
+		sumofDigits(567656);// 5+6+7+6+5+6=35
 		leapYear();
 		sumoftwoMatrices();
 		reversingtheEachWord();
@@ -21,6 +25,75 @@ public class ProgramPractice {
 		swappingvaluewithoutthirdvariable();
 		System.out.println("Fibonic series given input is: " + fibinocseries(8));
 
+	}
+
+	public static void duplicateValuesInaArray() {
+		int[] a = new int[] { 1, 2, 4, 4, 5, 6, 1, 3, 3, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9 };
+
+		int n = a.length;
+		Arrays.sort(a);
+		int i, j, frequency;
+		for (i = 0; i < n; i++) {
+			frequency = 1;
+			for (j = i + 1; j < n; j++) {
+				if (a[i] == a[j]) {
+					frequency++;
+				} else {
+					break;
+				}
+			}
+			i = j - 1;
+			if (frequency > 1) {
+
+				// printing the output
+				System.out.println(a[i] + " --> " + frequency);
+
+			}
+		}
+
+		// This Option only for the below 10 size of the Array
+		System.out.println("This Option only for the below 10 size of the Array");
+		int[] b = new int[] { 1, 2, 3, 4, 2, 7, 8, 8, 3 };
+		for (int k = 0; k < b.length; k++) {
+			for (int l = k + 1; l < b.length; l++) {
+				if (b[k] == b[l])
+					System.out.print(b[l] + " ");
+			}
+		}
+		System.out.println("\nGetting duplicate values using collections");
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		boolean ifPresent = false;
+		for (int c = 0; i < a.length - 1; c++) {
+			for (int d = c + 1; d < a.length; d++) {
+				if (a[c] == a[d]) {
+					if (arr.contains(a[i])) {
+						break;
+					} else {
+						arr.add(a[i]);
+						ifPresent = true;
+					}
+				}
+
+			}
+
+		}
+		if (ifPresent == true) {
+			System.out.print(arr + " ");
+		} else {
+			System.out.println("No duplicate found in the given array");
+		}
+	}
+
+	public static void sumofDigits(int n) {
+		int sum = 0;
+		int r;
+		while (n > 0) {
+			r = n % 10;
+			sum = sum + r;
+			n = n / 10;
+
+		}
+		System.out.println(" \r\n Sum of digit: " + sum);
 	}
 
 	static int majorityElementsinArray(int a[], int size) {

@@ -28,13 +28,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.manager.SeleniumManager;
 import org.testng.asserts.SoftAssert;
 
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		multipleWindowAccess();
+		submitFOrmwithoutClick();
+		takeAScreenShot();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -237,6 +239,11 @@ public class SeleniumPracticeCocepts {
 		FileUtils.copyFile(src, new File("test_" + currentDate() + ".png"));
 		takeAScreenShot();
 		Thread.sleep(2000);
+
+		// hight and width of the webelement
+
+		System.out.println(search.getRect().getDimension().getHeight());
+		System.out.println(search.getRect().getDimension().getWidth());
 		driver.quit();
 
 	}
@@ -254,5 +261,11 @@ public class SeleniumPracticeCocepts {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
+	}
+
+	public static void submitFOrmwithoutClick() {
+		browserIntilaization("chrome");
+		driver.get("https://google.com");
+		driver.findElement(By.cssSelector("textarea[name='q']")).sendKeys("data", Keys.ENTER);
 	}
 }
