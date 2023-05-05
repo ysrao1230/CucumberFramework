@@ -10,7 +10,7 @@ Feature: Login Validation
     And "statusCode" in response body is "200"
     And get the token info
 
-  @APITesting
+  
   Scenario Outline: Validate the APplication with the large set of data
     Given Login to the application with valid user name and password
       | yamalapalli1230@gmail.com | Admin@6765 |

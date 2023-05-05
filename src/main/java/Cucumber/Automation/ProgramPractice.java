@@ -204,6 +204,16 @@ public class ProgramPractice {
 		System.out.println(reverseString);
 
 		System.out.println("-------------------------");
+
+		String[] temp = reverseString.split(" ");
+		String result = "";
+		for (int i = 0; i < temp.length; i++) {
+
+			result = " " + temp[i] + result;
+
+
+		}
+		System.out.println(result.trim());
 	}
 
 	public static void swappingvaluewithoutthirdvariable() {
