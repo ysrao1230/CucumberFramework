@@ -7,9 +7,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 public class ProgramPractice {
 
 	public static void main(String[] args) {
+		largestNumberOfInputs(12, 1, 9);
+		numberOfEvenAndOdd();
 		duplicateValuesInaArray();
 		sumofDigits(567656);// 5+6+7+6+5+6=35
 		leapYear();
@@ -23,7 +27,40 @@ public class ProgramPractice {
 		missingnumberintheArray(m);
 		reverseAString();
 		swappingvaluewithoutthirdvariable();
-		System.out.println("Fibonic series given input is: " + fibinocseries(8));
+		System.out.println("/nFibonic series given input is: " + fibinocseries(8));
+
+	}
+
+	public static void largestNumberOfInputs(int a, int b, int c) {
+		// Using the ternary operator
+		int largest = a > b ? a : b;
+		int laregst2 = c > largest ? c : largest;
+		System.out.println("Largest number is: " + laregst2);
+		// Random string generation
+		System.out.println("RandomString with length 12");
+		System.out.println(RandomStringUtils.randomAlphabetic(6, 12));
+		System.out.println(RandomStringUtils.randomAlphanumeric(8));
+	}
+
+	public static void numberOfEvenAndOdd() {
+		System.out.println("Enter the Number  ");
+		Scanner n = new Scanner(System.in);
+		int n1 = n.nextInt();
+
+		int evenNum = 0;
+		int odNum = 0;
+
+		while (n1 != 0) {
+			int rem = n1 % 10;
+			if (rem % 2 == 0) {
+				evenNum++;
+			} else {
+				odNum++;
+			}
+			n1 = n1 / 10;
+		}
+		System.out.println("Number of Even digits: " + evenNum);
+		System.out.println("Number of Odd digits: " + odNum);
 
 	}
 
@@ -210,8 +247,6 @@ public class ProgramPractice {
 		for (int i = 0; i < temp.length; i++) {
 
 			result = " " + temp[i] + result;
-
-
 		}
 		System.out.println(result.trim());
 	}
@@ -239,6 +274,7 @@ public class ProgramPractice {
 			c = a + b;
 			a = b;
 			b = c;
+			System.out.print(b+" ");
 		}
 		return b;
 	}
