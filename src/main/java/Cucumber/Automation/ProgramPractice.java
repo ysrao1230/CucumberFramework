@@ -12,6 +12,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
+		twoArraysAreEqual();
 		largestNumberOfInputs(12, 1, 9);
 		numberOfEvenAndOdd();
 		duplicateValuesInaArray();
@@ -28,6 +29,61 @@ public class ProgramPractice {
 		reverseAString();
 		swappingvaluewithoutthirdvariable();
 		System.out.println("/nFibonic series given input is: " + fibinocseries(8));
+
+	}
+
+	private static void twoArraysAreEqual() {
+		int a[] = { 1, 2, 3, 4, 5, 5, 4 };
+		int b[] = { 1, 2, 3, 4, 5 };
+
+		boolean result = true;
+		if (a.length == b.length) {
+			for (int i = 0; i < a.length; i++) {
+				if (a[i] != b[i]) {
+					result = false;
+				}
+			}
+
+		} else {
+			result = false;
+		}
+		if (result == true) {
+			System.out.println("two arrays are equal");
+		} else {
+			System.out.println("Two arrays are not equal");
+		}
+
+		// Maximum and Minimum of array
+		System.out.println("Maximum and Minimum of the Array in the given array");
+		int max = a[0];
+		int min = a[0];
+		for (int i = 1; i < a.length; i++) {
+			if (a[i] > max) {
+				max = a[i];
+			}
+			if (a[i] < min) {
+				min = a[i];
+			}
+		}
+		System.out.println("Max value in the array is: " + max);
+		System.out.println("Min value in the array is: " + min);
+
+		// Duplicate Elements
+		HashSet<Integer> num = new HashSet<Integer>();
+//		System.out.println(num.add(1));
+//		System.out.println(num.add(2));
+//		System.out.println(num.add(3));
+//		System.out.println(num.add(1));
+		boolean duplicate = false;
+		for (int i : a) {
+			if (num.add(i) == false) {
+				System.out.println("Found the duplicate element is: " + i);
+				duplicate = true;
+			}
+		}
+		if (duplicate == false) {
+			System.out.println("Duplicate element not found");
+		}
 
 	}
 
@@ -61,11 +117,24 @@ public class ProgramPractice {
 		}
 		System.out.println("Number of Even digits: " + evenNum);
 		System.out.println("Number of Odd digits: " + odNum);
-
 	}
 
 	public static void duplicateValuesInaArray() {
 		int[] a = new int[] { 1, 2, 4, 4, 5, 6, 1, 3, 3, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9 };
+
+		// Sum of the given Array values
+
+		int sum = 0;
+		for (int i = 0; i < a.length; i++) {
+			sum = sum + a[i];
+
+			if (a[i] % 2 == 0) {
+				System.out.print(a[i] + " ");
+			} else {
+				System.out.print(a[i] + " ");
+			}
+		}
+		System.out.println("Sum of the givenvalues is: " + sum);
 
 		int n = a.length;
 		Arrays.sort(a);
@@ -274,7 +343,7 @@ public class ProgramPractice {
 			c = a + b;
 			a = b;
 			b = c;
-			System.out.print(b+" ");
+			System.out.print(b + " ");
 		}
 		return b;
 	}
