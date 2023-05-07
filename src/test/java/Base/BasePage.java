@@ -1,7 +1,5 @@
 package Base;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import utils.AppConfig;
+
+import java.time.Duration;
 
 public class BasePage {
 
@@ -21,14 +20,11 @@ public class BasePage {
 		String browserName = AppConfig.browserName;
 
 		if (browserName.equalsIgnoreCase("chrome")) {
-			/*
-			 * ChromeOptions options = new ChromeOptions();
-			 * options.addArguments("--headless");
-			 * options.addArguments("--remote-allow-origins=*");
-			 * 
-			 * driver = new ChromeDriver(options);
-			 */
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			options.addArguments("--remote-allow-origins=*");
+			driver = new ChromeDriver(options);
+			//driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("edge")) {
