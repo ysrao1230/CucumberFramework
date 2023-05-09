@@ -7,6 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import utils.AppConfig;
 
 import java.time.Duration;
@@ -24,7 +27,7 @@ public class BasePage {
 			options.addArguments("--headless");
 			options.addArguments("--remote-allow-origins=*");
 			driver = new ChromeDriver(options);
-			//driver = new ChromeDriver();
+			// driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("edge")) {
@@ -34,15 +37,20 @@ public class BasePage {
 		}
 
 		if (driver != null) {
+			driver.manage().window().maximize();
 			System.out.println(AppConfig.url);
 			driver.get(AppConfig.url);
-			driver.manage().window().maximize();
+			driver.navigate().refresh();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		}
 
 	}
 
 	public WebElement gettingWebElements(By xpath) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
 		return driver.findElement(xpath);
 	}
+
 }

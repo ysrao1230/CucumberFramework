@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Srinivasa Rao\AppData\Local\Temp\testng-eclipse-1161047\testng-customsuite.xml</span>
+                    <span>C:\Users\Srinivasa Rao\AppData\Local\Temp\testng-eclipse-514265088\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestngTestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Validate the dash components&quot;, &quot;Dashboard operation&quot;)">runScenario("Validate the dash components", "Dashboard operation")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestngTestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Closing the dashboard popup window&quot;, &quot;Login Validation&quot;)">runScenario("Closing the dashboard popup window", "Login Validation")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -117,7 +117,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestngTestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Verify the login functionality&quot;, &quot;Login Validation&quot;)">runScenario("Verify the login functionality", "Login Validation")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestngTestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Validate the application dashboard greeting message&quot;, &quot;Login Validation&quot;)">runScenario("Validate the application dashboard greeting message", "Login Validation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestngTestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Getting the dashboard&quot;, &quot;Login Validation&quot;)">runScenario("Getting the dashboard", "Login Validation")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -140,15 +145,37 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Validate the dash components&quot;, &quot;Dashboard operation&quot;)">
-                  </a> <!-- runScenario("Validate the dash components", "Dashboard operation") -->
+                  <a name="runScenario(&quot;Closing the dashboard popup window&quot;, &quot;Login Validation&quot;)">
+                  </a> <!-- runScenario("Closing the dashboard popup window", "Login Validation") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Validate the dash components","Dashboard operation")</span>
-                  <div class="stack-trace">org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at StepDefination.DashboardOpearations.compare_the_email_address_is_correct_or_not_with_the_profile_email_address(DashboardOpearations.java:33)
-	at ✽.compare the email address is correct or not with the profile email address(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/dashboard.feature:7)
+                  <span class="parameters">("Closing the dashboard popup window","Login Validation")</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@aria-label=&apos;Close&apos;]&quot;}
+  (Session info: headless chrome=113.0.5672.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [405158bd7f4c1ebc4807ec0118712e84, findElement {using=xpath, value=//button[@aria-label=&apos;Close&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.63, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\SRINIV~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49679}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49679/devtoo..., se:cdpVersion: 113.0.5672.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 405158bd7f4c1ebc4807ec0118712e84
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at Base.BasePage.gettingWebElements(BasePage.java:46)
+	at pageObjects.DashboardPage.closepopupicon(DashboardPage.java:25)
+	at StepDefination.PagetitleValidation.close_the_dasboardpopup_window(PagetitleValidation.java:108)
+	at ✽.close the dasboardpopup window(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/login.feature:28)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -165,10 +192,20 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify the login functionality&quot;, &quot;Login Validation&quot;)">
-                  </a> <!-- runScenario("Verify the login functionality", "Login Validation") -->
+                  <a name="runScenario(&quot;Validate the application dashboard greeting message&quot;, &quot;Login Validation&quot;)">
+                  </a> <!-- runScenario("Validate the application dashboard greeting message", "Login Validation") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify the login functionality","Login Validation")</span>
+                  <span class="parameters">("Validate the application dashboard greeting message","Login Validation")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Getting the dashboard&quot;, &quot;Login Validation&quot;)">
+                  </a> <!-- runScenario("Getting the dashboard", "Login Validation") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Getting the dashboard","Login Validation")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -178,7 +215,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Srinivasa Rao\AppData\Local\Temp\testng-eclipse-1161047\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Srinivasa Rao\AppData\Local\Temp\testng-eclipse-514265088\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -235,20 +272,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'cucumberOptions.TestngTestRunner')
-data.setCell(0, 3, 8875);
+data.setCell(0, 3, 55629);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'cucumberOptions.TestngTestRunner')
-data.setCell(1, 3, 799);
+data.setCell(1, 3, 53039);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'runScenario')
+data.setCell(2, 2, 'cucumberOptions.TestngTestRunner')
+data.setCell(2, 3, 45331);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -276,22 +317,26 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">cucumberOptions.TestngTestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@3d7314b3)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@44afefd5)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">runScenario("Validate the dash components", "Dashboard operation")</span>
-                <span class="method-start">2309 ms</span>
+                <span class="method-name">runScenario("Validate the application dashboard greeting message", "Login Validation")</span>
+                <span class="method-start">1117 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">runScenario("Verify the login functionality", "Login Validation")</span>
-                <span class="method-start">3176 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Closing the dashboard popup window", "Login Validation")</span>
+                <span class="method-start">1151 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Getting the dashboard", "Login Validation")</span>
+                <span class="method-start">1154 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">12057 ms</span>
+                <span class="method-start">56790 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -17,17 +17,17 @@ public class LoginPage {
 	By loginButton = By.xpath("//button[text()=' Login ']");
 
 	public void userNameInput(String userName) {
-		basepage.driver.findElement(username).sendKeys(userName);
+		basepage.gettingWebElements(username).sendKeys(userName);
 	}
 
 	public void passwordNameInput(String passwords) {
-		basepage.driver.findElement(password).sendKeys(passwords);
+		basepage.gettingWebElements(password).sendKeys(passwords);
 	}
 
 	public void loginButtonAction() {
-		basepage.driver.findElement(loginButton).click();
+		basepage.gettingWebElements(loginButton).click();
 	}
-	
+
 	public String getPageTitle() {
 		return basepage.driver.getTitle();
 	}

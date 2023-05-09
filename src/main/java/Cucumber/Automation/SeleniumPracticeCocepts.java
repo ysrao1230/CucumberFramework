@@ -1,6 +1,7 @@
 package Cucumber.Automation;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -14,6 +15,10 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -34,8 +39,7 @@ public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		submitFOrmwithoutClick();
-		takeAScreenShot();
+		readExcelData();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -266,5 +270,67 @@ public class SeleniumPracticeCocepts {
 		browserIntilaization("chrome");
 		driver.get("https://google.com");
 		driver.findElement(By.cssSelector("textarea[name='q']")).sendKeys("data", Keys.ENTER);
+	}
+
+	public static void readExcelData() throws IOException {
+
+		String filepath = "C:\\Users\\Srinivasa Rao\\Downloads\\ExcelReadWrite.xlsx";
+		FileInputStream fip = new FileInputStream(filepath);
+		XSSFWorkbook wb = new XSSFWorkbook(fip);
+		XSSFSheet sheet = wb.getSheetAt(0);
+
+		int rows = sheet.getLastRowNum();
+		int cols = sheet.getRow(1).getLastCellNum();
+		System.out.println("last row  no: " + rows);
+		System.out.println("Last column number: " + cols);
+
+		for (int i = 0; i <= rows; i++) {
+
+			XSSFRow row = sheet.getRow(i);
+			for (int c = 0; c < cols; c++) {
+				XSSFCell cell = row.getCell(c);
+				switch (cell.getCellType()) {
+				case STRING:
+					System.out.print(cell.getStringCellValue());
+					break;
+				case NUMERIC:
+					System.out.print(cell.getNumericCellValue());
+					break;
+				case BOOLEAN:
+					System.out.print(cell.getBooleanCellValue());
+					break;
+				case FORMULA:
+					System.out.print(cell.getNumericCellValue());
+
+				}
+				System.out.print("|");
+			}
+			System.out.println();
+
+		}
+		System.out.println("------------------------------");
+		// Using the iterator
+		Iterator it = sheet.rowIterator();
+		while (it.hasNext()) {
+			XSSFRow row = (XSSFRow) it.next();
+			Iterator cellit = row.cellIterator();
+			while (cellit.hasNext()) {
+				XSSFCell cell = (XSSFCell) cellit.next();
+				switch (cell.getCellType()) {
+				case STRING:
+					System.out.print(cell.getStringCellValue());
+					break;
+				case NUMERIC:
+					System.out.print(cell.getNumericCellValue());
+					break;
+				case BOOLEAN:
+					System.out.print(cell.getBooleanCellValue());
+					break;
+
+				}
+				System.out.print(" | ");
+			}
+			System.out.println();
+		}
 	}
 }

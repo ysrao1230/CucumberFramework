@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri May 05 23:15:37 IST 2023</td>
+<td>Started on:</td><td>Tue May 09 22:52:27 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>13 seconds (13409 ms)</td>
+<tr><td>Total time:</td><td>58 seconds (58992 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,21 +76,65 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the dash components", "Dashboard operation"</td>
-<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at StepDefination.DashboardOpearations.compare_the_email_address_is_correct_or_not_with_the_profile_email_address(DashboardOpearations.java:33)
-	at ✽.compare the email address is correct or not with the profile email address(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/dashboard.feature:7)
-</pre></div><a href='#' onClick='toggleBox("stack-trace362432678", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace362432678'><pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at StepDefination.DashboardOpearations.compare_the_email_address_is_correct_or_not_with_the_profile_email_address(DashboardOpearations.java:33)
-	at ✽.compare the email address is correct or not with the profile email address(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/dashboard.feature:7)
+<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Closing the dashboard popup window", "Login Validation"</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@aria-label=&apos;Close&apos;]&quot;}
+  (Session info: headless chrome=113.0.5672.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [405158bd7f4c1ebc4807ec0118712e84, findElement {using=xpath, value=//button[@aria-label=&apos;Close&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.63, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\SRINIV~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49679}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49679/devtoo..., se:cdpVersion: 113.0.5672.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 405158bd7f4c1ebc4807ec0118712e84
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at Base.BasePage.gettingWebElements(BasePage.java:46)
+	at pageObjects.DashboardPage.closepopupicon(DashboardPage.java:25)
+	at StepDefination.PagetitleValidation.close_the_dasboardpopup_window(PagetitleValidation.java:108)
+	at ✽.close the dasboardpopup window(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/login.feature:28)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2006811484", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2006811484'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@aria-label=&apos;Close&apos;]&quot;}
+  (Session info: headless chrome=113.0.5672.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;19.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [405158bd7f4c1ebc4807ec0118712e84, findElement {using=xpath, value=//button[@aria-label=&apos;Close&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.63, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\SRINIV~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49679}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49679/devtoo..., se:cdpVersion: 113.0.5672.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 405158bd7f4c1ebc4807ec0118712e84
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at Base.BasePage.gettingWebElements(BasePage.java:46)
+	at pageObjects.DashboardPage.closepopupicon(DashboardPage.java:25)
+	at StepDefination.PagetitleValidation.close_the_dasboardpopup_window(PagetitleValidation.java:108)
+	at ✽.close the dasboardpopup window(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/login.feature:28)
 </pre></div></td>
-<td>0</td>
-<td>cucumberOptions.TestngTestRunner@79079097</td></tr>
+<td>55</td>
+<td>cucumberOptions.TestngTestRunner@7a8c8dcf</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -101,10 +145,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify the login functionality", "Login Validation"</td>
+<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the application dashboard greeting message", "Login Validation"</td>
 <td></td>
-<td>8</td>
-<td>cucumberOptions.TestngTestRunner@79079097</td></tr>
+<td>53</td>
+<td>cucumberOptions.TestngTestRunner@7a8c8dcf</td></tr>
+<tr>
+<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Getting the dashboard", "Login Validation"</td>
+<td></td>
+<td>45</td>
+<td>cucumberOptions.TestngTestRunner@7a8c8dcf</td></tr>
 </table><p>
 </body>
 </html>

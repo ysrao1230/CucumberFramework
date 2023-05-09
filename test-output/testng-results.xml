@@ -1,60 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-05T23:15:37 IST" name="Default suite" finished-at="2023-05-05T23:15:51 IST" duration-ms="13409">
+  <suite started-at="2023-05-09T22:52:27 IST" name="Default suite" finished-at="2023-05-09T22:53:26 IST" duration-ms="58992">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@79079097]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@7a8c8dcf]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-05-05T23:15:37 IST" name="Default test" finished-at="2023-05-05T23:15:51 IST" duration-ms="13409">
+    <test started-at="2023-05-09T22:52:27 IST" name="Default test" finished-at="2023-05-09T22:53:26 IST" duration-ms="58992">
       <class name="cucumberOptions.TestngTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptions.TestngTestRunner@79079097]" started-at="2023-05-05T23:15:38 IST" name="setUpClass" finished-at="2023-05-05T23:15:40 IST" duration-ms="2267" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberOptions.TestngTestRunner@7a8c8dcf]" started-at="2023-05-09T22:52:27 IST" name="setUpClass" finished-at="2023-05-09T22:52:28 IST" duration-ms="1088" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3d7314b3]]>
+                <![CDATA[org.testng.TestRunner@44afefd5]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@79079097]" started-at="2023-05-05T23:15:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-05T23:15:41 IST" duration-ms="799" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@7a8c8dcf]" started-at="2023-05-09T22:52:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-09T22:53:21 IST" duration-ms="53039" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Validate the dash components"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Dashboard operation"]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.junit.ComparisonFailure">
-            <message>
-              <![CDATA[expected:<[tru]e> but was:<[fals]e>]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.junit.ComparisonFailure: expected:<[tru]e> but was:<[fals]e>
-at org.junit.Assert.assertEquals(Assert.java:115)
-at org.junit.Assert.assertEquals(Assert.java:144)
-at StepDefination.DashboardOpearations.compare_the_email_address_is_correct_or_not_with_the_profile_email_address(DashboardOpearations.java:33)
-at ✽.compare the email address is correct or not with the profile email address(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/dashboard.feature:7)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.junit.ComparisonFailure -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@79079097]" started-at="2023-05-05T23:15:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-05T23:15:50 IST" duration-ms="8875" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verify the login functionality"]]>
+                <![CDATA["Validate the application dashboard greeting message"]]>
               </value>
             </param>
             <param index="1">
@@ -66,7 +37,82 @@ at ✽.compare the email address is correct or not with the profile email addres
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptions.TestngTestRunner@79079097]" started-at="2023-05-05T23:15:50 IST" name="tearDownClass" finished-at="2023-05-05T23:15:51 IST" duration-ms="1312" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@7a8c8dcf]" started-at="2023-05-09T22:52:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-09T22:53:24 IST" duration-ms="55629" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Closing the dashboard popup window"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Validation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//button[@aria-label='Close']"}
+  (Session info: headless chrome=113.0.5672.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [405158bd7f4c1ebc4807ec0118712e84, findElement {using=xpath, value=//button[@aria-label='Close']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.63, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\SRINIV~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49679}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49679/devtoo..., se:cdpVersion: 113.0.5672.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 405158bd7f4c1ebc4807ec0118712e84]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@aria-label='Close']"}
+  (Session info: headless chrome=113.0.5672.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [405158bd7f4c1ebc4807ec0118712e84, findElement {using=xpath, value=//button[@aria-label='Close']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.63, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\SRINIV~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49679}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49679/devtoo..., se:cdpVersion: 113.0.5672.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 405158bd7f4c1ebc4807ec0118712e84
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+at Base.BasePage.gettingWebElements(BasePage.java:46)
+at pageObjects.DashboardPage.closepopupicon(DashboardPage.java:25)
+at StepDefination.PagetitleValidation.close_the_dasboardpopup_window(PagetitleValidation.java:108)
+at ✽.close the dasboardpopup window(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/login.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberOptions.TestngTestRunner@7a8c8dcf]" started-at="2023-05-09T22:52:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-05-09T22:53:13 IST" duration-ms="45331" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Getting the dashboard"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Validation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberOptions.TestngTestRunner@7a8c8dcf]" started-at="2023-05-09T22:53:24 IST" name="tearDownClass" finished-at="2023-05-09T22:53:26 IST" duration-ms="2164" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
