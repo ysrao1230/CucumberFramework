@@ -25,7 +25,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.checkerframework.common.reflection.qual.ForName;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -40,15 +39,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 	static Connection connect;
 
-	public static void main(String[] args) throws InterruptedException, IOException, SQLException,
-			InstantiationException, IllegalAccessException, ClassNotFoundException {
-		dbConnectionusingSelenium();
+	public static void main(String[] args) throws SQLException, IOException, InterruptedException {
+		// dbConnectionusingSelenium();
+		fileUploadUsingAUtoIt();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -291,6 +291,7 @@ public class SeleniumPracticeCocepts {
 
 		String filepath = "C:\\Users\\Srinivasa Rao\\Downloads\\ExcelReadWrite.xlsx";
 		FileInputStream fip = new FileInputStream(filepath);
+		@SuppressWarnings("resource")
 		XSSFWorkbook wb = new XSSFWorkbook(fip);
 		XSSFSheet sheet = wb.getSheetAt(0);
 
@@ -378,10 +379,8 @@ public class SeleniumPracticeCocepts {
 
 	}
 
-	@SuppressWarnings("deprecation")
-	public static void dbConnectionusingSelenium()
-			throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
-		
+	public static void dbConnectionusingSelenium() throws SQLException {
+
 		try {
 			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "Msrrcr@1.");
 		} catch (SQLException e) {
@@ -410,5 +409,24 @@ public class SeleniumPracticeCocepts {
 			System.out.print(result.getString(5) + " | ");
 			System.out.println();
 		}
+//		Runtime.getRuntime().exec(null)
+	}
+
+	@SuppressWarnings("deprecation")
+	public static void fileUploadUsingAUtoIt() throws IOException, InterruptedException {
+		browserIntilaization("firefox");
+		driver.get("https://fineuploader.com/demos.html");
+		Actions a = new Actions(driver);
+		// scroll down a page
+		a.sendKeys(Keys.PAGE_DOWN).build().perform();
+		System.out.println(driver.getTitle());
+		Thread.sleep(5000);
+		WebElement uploadbutton = driver
+				.findElement(By.xpath("//div[@id='fine-uploader-gallery']//input[@title='file input']"));
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", uploadbutton);
+		Runtime.getRuntime().exec("D:/Automation info/autoit-v3-setup/AutoResources/Autoit.exe" + " "
+				+ "C:/Users/Srinivasa Rao/Downloads/brydon-mccluskey-Cp0reX9APUA-unsplash.jpg");
+		System.out.println("FIle Uploaded Successfully");
 	}
 }
