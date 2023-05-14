@@ -7,6 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,10 +20,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.checkerframework.common.reflection.qual.ForName;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,9 +44,11 @@ import org.testng.asserts.SoftAssert;
 
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
+	static Connection connect;
 
-	public static void main(String[] args) throws InterruptedException, IOException {
-		readExcelData();
+	public static void main(String[] args) throws InterruptedException, IOException, SQLException,
+			InstantiationException, IllegalAccessException, ClassNotFoundException {
+		dbConnectionusingSelenium();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -73,7 +82,6 @@ public class SeleniumPracticeCocepts {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Set<String> allWindow = driver.getWindowHandles();
@@ -175,6 +183,11 @@ public class SeleniumPracticeCocepts {
 
 		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File dest = new File("./Screenshots/test_" + currentDate() + ".png");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		FileUtils.copyFile(srcFile, dest);
 	}
 
@@ -266,10 +279,12 @@ public class SeleniumPracticeCocepts {
 
 	}
 
-	public static void submitFOrmwithoutClick() {
+	public static void submitFOrmwithoutClick() throws IOException {
 		browserIntilaization("chrome");
 		driver.get("https://google.com");
 		driver.findElement(By.cssSelector("textarea[name='q']")).sendKeys("data", Keys.ENTER);
+		takeAScreenShot();
+		driver.quit();
 	}
 
 	public static void readExcelData() throws IOException {
@@ -301,6 +316,8 @@ public class SeleniumPracticeCocepts {
 					break;
 				case FORMULA:
 					System.out.print(cell.getNumericCellValue());
+				default:
+					break;
 
 				}
 				System.out.print("|");
@@ -310,10 +327,10 @@ public class SeleniumPracticeCocepts {
 		}
 		System.out.println("------------------------------");
 		// Using the iterator
-		Iterator it = sheet.rowIterator();
+		Iterator<Row> it = sheet.rowIterator();
 		while (it.hasNext()) {
 			XSSFRow row = (XSSFRow) it.next();
-			Iterator cellit = row.cellIterator();
+			Iterator<?> cellit = row.cellIterator();
 			while (cellit.hasNext()) {
 				XSSFCell cell = (XSSFCell) cellit.next();
 				switch (cell.getCellType()) {
@@ -326,10 +343,71 @@ public class SeleniumPracticeCocepts {
 				case BOOLEAN:
 					System.out.print(cell.getBooleanCellValue());
 					break;
+				default:
+					break;
 
 				}
 				System.out.print(" | ");
 			}
+			System.out.println();
+		}
+		System.out.println("**************************************");
+		for (int i = 0; i <= rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				XSSFCell celldata = sheet.getRow(i).getCell(j);
+				switch (celldata.getCellType()) {
+				case NUMERIC:
+					System.out.print(celldata.getNumericCellValue());
+					break;
+				case BOOLEAN:
+					System.out.print(celldata.getBooleanCellValue());
+					break;
+				case STRING:
+					System.out.print(celldata.getStringCellValue());
+					break;
+				case FORMULA:
+					System.out.print(celldata.getNumericCellValue());
+					break;
+				default:
+					break;
+				}
+				System.out.print(" | ");
+			}
+			System.out.println();
+		}
+
+	}
+
+	@SuppressWarnings("deprecation")
+	public static void dbConnectionusingSelenium()
+			throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+		
+		try {
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "Msrrcr@1.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (connect.isClosed() == true) {
+				System.out.println("Data Base connection is closed");
+			} else {
+				System.out.println("Data Base connection established successfully");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Statement stmt = connect.createStatement();
+		ResultSet result = stmt
+				.executeQuery("SELECT * FROM sys.product where PRODUCT_TYPE_CD='ACCOUNT' and PRODUCT_CD='MM'");
+
+		while (result.next()) {
+			System.out.print(result.getString(1) + " | ");
+			System.out.print(result.getString(2) + " | ");
+			System.out.print(result.getString(3) + " | ");
+			System.out.print(result.getString(4) + " | ");
+			System.out.print(result.getString(5) + " | ");
 			System.out.println();
 		}
 	}

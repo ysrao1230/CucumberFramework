@@ -10,7 +10,6 @@ Feature: Login Validation
     And "statusCode" in response body is "200"
     And get the token info
 
-  
   Scenario Outline: Validate the APplication with the large set of data
     Given Login to the application with valid user name and password
       | yamalapalli1230@gmail.com | Admin@6765 |
@@ -31,3 +30,12 @@ Feature: Login Validation
   Scenario: Getting the dashboard
     Given close the dasboardpopup window
     Then get the dashboard greeting message with the user name
+
+  Scenario Outline: Data capturing using the examples
+    Given Navigate to the application
+    When enter "<Username>" and "<Password>"
+    Then Logged in successfully
+
+    Examples: 
+      | Username  | Password  |
+      | Username1 | Password1 |
