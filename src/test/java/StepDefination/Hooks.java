@@ -1,23 +1,21 @@
 package StepDefination;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
+import Base.BasePage;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
-import Base.BasePage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import pageObjects.LoginPage;
 import utils.AppConfig;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Hooks {
 
@@ -73,7 +71,7 @@ public class Hooks {
 	}
 
 	@AfterStep
-	public void addScreenshot(Scenario scenario) throws IOException {
+	public void addScreenshotToFailedScenario(Scenario scenario) throws IOException {
 		if (scenario.isFailed()) {
 			// Screenshot capturing
 			File sourcePath = ((TakesScreenshot) basePage.driver).getScreenshotAs(OutputType.FILE);
