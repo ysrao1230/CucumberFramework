@@ -10,10 +10,10 @@ import io.cucumber.testng.CucumberOptions;
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, tags = "@WebTesting", publish = true)
 public class TestngTestRunner extends AbstractTestNGCucumberTests {
 
-	@Override
-	@DataProvider(parallel = true)
-	public Object[][] scenarios() {
-		return super.scenarios();
-	}
+//	@Override
+//	@DataProvider(parallel = true)
+//	public Object[][] scenarios() {
+//		return super.scenarios();
+//	}
 
 }

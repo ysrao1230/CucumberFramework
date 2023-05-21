@@ -12,6 +12,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
+		findnumberofoccurancesinaString("yamalapalli srinivasa  rao");
 		twoArraysAreEqual();
 		largestNumberOfInputs(12, 1, 9);
 		numberOfEvenAndOdd();
@@ -373,5 +374,37 @@ public class ProgramPractice {
 		} else {
 			System.out.println(year + " is not a Leap year");
 		}
+	}
+
+	public static void findnumberofoccurancesinaString(String str) {
+		System.out.println("Given input string is: " + str);
+		str = str.replaceAll("\\s", "");
+
+		char ch[] = str.toCharArray();
+		Arrays.sort(ch);
+
+		HashMap<Character, Integer> chardata = new HashMap<Character, Integer>();
+
+		for (char c : ch) {
+			Integer count = 1;
+			if (chardata.containsKey(c)) {
+				chardata.put(c, chardata.get(c) + 1);
+			} else {
+				chardata.put(c, 1);
+			}
+		}
+		System.out.println("characters-wise count: ");
+		for (Map.Entry<Character, Integer> chs : chardata.entrySet()) {
+			if (chs.getValue() >= 1) {
+				System.out.println(chs.getKey() + " " + chs.getValue());
+			}
+		}
+		System.out.println("Only duplicate characters");
+		for (Map.Entry<Character, Integer> chs : chardata.entrySet()) {
+			if (chs.getValue() > 1) {
+				System.out.print(chs.getKey() + " ");
+			}
+		}
+
 	}
 }

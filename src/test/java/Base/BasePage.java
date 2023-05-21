@@ -17,10 +17,11 @@ import java.time.Duration;
 public class BasePage {
 
 	public WebDriver driver = null;
+	public String browserName;
 
 	public void browserIntialization() {
 
-		String browserName = AppConfig.browserName;
+		browserName = AppConfig.browserName;
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();

@@ -42,13 +42,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
 public class SeleniumPracticeCocepts {
 	public static WebDriver driver = null;
 	static Connection connect;
 
 	public static void main(String[] args) throws SQLException, IOException, InterruptedException {
-		// dbConnectionusingSelenium();
-		fileUploadUsingAUtoIt();
+		dbConnectionusingSelenium();
+		// fileUploadUsingAUtoIt();
 	}
 
 	public static void clickingontheLinksOfthePage() {
@@ -409,6 +414,13 @@ public class SeleniumPracticeCocepts {
 			System.out.print(result.getString(5) + " | ");
 			System.out.println();
 		}
+		ExtentReports extent = new ExtentReports();
+		ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+		spark.config().setTheme(Theme.DARK);
+		extent.attachReporter(spark);
+		extent.createTest("MyFirstTest").log(Status.PASS, "This is a logging event for MyFirstTest, and it passed!");
+
+		extent.flush();
 //		Runtime.getRuntime().exec(null)
 	}
 
