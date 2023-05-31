@@ -40,9 +40,9 @@ Feature: Login Validation
       | Username  | Password  |
       | Username1 | Password1 |
 
-@WebTesting
+@WebTesting1
   Scenario: : Get the profile Details
     Given Navigate to the application
-    When Close the dashboard Popup
+    When close the dasboardpopup window
     And Navigate to the Profile Page
     Then get the user first name, last name, email and Phone Number

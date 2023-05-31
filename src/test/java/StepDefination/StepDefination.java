@@ -1,4 +1,4 @@
-package stepDefination;
+package StepDefination;
 
 import org.testng.annotations.DataProvider;
 

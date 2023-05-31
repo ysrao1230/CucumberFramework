@@ -1,4 +1,4 @@
-package stepDefination;
+package StepDefination;
 
 import Base.BasePage;
 import com.aventstack.extentreports.ExtentReports;
@@ -40,7 +40,7 @@ public class Hooks {
 		System.out.println("\r\n ENd of the API Testing using hooks ");
 	}
 
-	@Before("@WebTesting")
+	@Before("@WebTesting1")
 	public void beforewebTesting() {
 		extent = new ExtentSparkReporter("spark_report.html");
 		reports.attachReporter(extent);
@@ -57,7 +57,7 @@ public class Hooks {
 		reports.createTest("Logged In").log(Status.PASS, "Application logged successfully");
 	}
 
-	@After("@WebTesting")
+	@After("@WebTesting1")
 	public void afterWebTesting() {
 		System.out.println("\r\n ENd of the Web Testing using hooks");
 		try {
