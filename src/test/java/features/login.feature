@@ -39,3 +39,10 @@ Feature: Login Validation
     Examples: 
       | Username  | Password  |
       | Username1 | Password1 |
+
+@WebTesting
+  Scenario: : Get the profile Details
+    Given Navigate to the application
+    When Close the dashboard Popup
+    And Navigate to the Profile Page
+    Then get the user first name, last name, email and Phone Number

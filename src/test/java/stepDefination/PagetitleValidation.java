@@ -1,4 +1,4 @@
-package StepDefination;
+package stepDefination;
 
 import static org.testng.Assert.assertTrue;
 

@@ -10,7 +10,10 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import Base.BasePage;
 
-public class TestUtils extends BasePage {
+public class TestUtils {
+
+	protected static final int IMPLICIT_WAIT_TIME = 10;
+	protected static final long EXPLICIT_WAIT_TIME = 20;
 
 	private static Workbook book;
 	private static Sheet sheet;

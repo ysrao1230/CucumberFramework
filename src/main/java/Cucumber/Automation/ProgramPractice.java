@@ -12,24 +12,56 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
-		findnumberofoccurancesinaString("yamalapalli srinivasa  rao");
-		twoArraysAreEqual();
-		largestNumberOfInputs(12, 1, 9);
-		numberOfEvenAndOdd();
-		duplicateValuesInaArray();
-		sumofDigits(567656);// 5+6+7+6+5+6=35
-		leapYear();
-		sumoftwoMatrices();
-		reversingtheEachWord();
-		separatenumberchardigit("yagdg#$%^6253536dFGHJ66473");
 		int a[] = { 2, 3, 4, 2, 3, 4, 4, 4, 45, 4, 4, 4, 4, 4 };
-		System.out.println("Majority of elements= " + majorityElementsinArray(a, a.length));
+		gettingUniqueValuesFromArray(a);
+//		findnumberofoccurancesinaString("yamalapalli srinivasa  rao");
+//		twoArraysAreEqual();
+//		largestNumberOfInputs(12, 1, 9);
+//		numberOfEvenAndOdd();
+//		duplicateValuesInaArray();
+//		sumofDigits(567656);// 5+6+7+6+5+6=35
+//		leapYear();
+//		sumoftwoMatrices();
+//		reversingtheEachWord();
+//		separatenumberchardigit("yagdg#$%^6253536dFGHJ66473");
+//
+//		System.out.println("Majority of elements= " + majorityElementsinArray(a, a.length));
+//
+//		Integer m[] = { 9, 1, 3, 6, 8, 0 };
+//		missingnumberintheArray(m);
+//		reverseAString();
+//		swappingvaluewithoutthirdvariable();
+//		System.out.println("/nFibonic series given input is: " + fibinocseries(8));
 
-		Integer m[] = { 9, 1, 3, 6, 8, 0 };
-		missingnumberintheArray(m);
-		reverseAString();
-		swappingvaluewithoutthirdvariable();
-		System.out.println("/nFibonic series given input is: " + fibinocseries(8));
+	}
+
+	public static void gettingUniqueValuesFromArray(int[] arra) {
+		int length = arra.length;
+		System.out.println("Array Length is: " + length);
+		for (int a : arra) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+		ArrayList<Integer> al = new ArrayList<>();
+
+		System.out.println("\nUnique value is: ");
+		for (int i = 0; i < length; i++) {
+			int count = 0;
+			for (int j = 0; j < length; j++) {
+				if (arra[i] == arra[j]) {
+					count++;
+				}
+			}
+			if (count == 1)
+				System.out.println(arra[i]);
+		}
+		
+		//Another approach
+		int ans= arra[0];
+		for(int i=1;i<length;i++) {
+			ans=ans^arra[i];
+		}
+		System.out.println(ans);
 
 	}
 
@@ -51,7 +83,7 @@ public class ProgramPractice {
 		if (result == true) {
 			System.out.println("two arrays are equal");
 		} else {
-			System.out.println("Two arrays are not equal");
+			System.out.println("\nTwo arrays are not equal");
 		}
 
 		// Maximum and Minimum of array
@@ -150,12 +182,14 @@ public class ProgramPractice {
 				}
 			}
 			i = j - 1;
-			if (frequency > 1) {
+			if (frequency == 1) {
 
 				// printing the output
-				System.out.println(a[i] + " --> " + frequency);
+				System.out.print(a[i] + " --> " + frequency);
 
 			}
+			System.out.println();
+			// System.out.println("Unique values in the given Array");
 		}
 
 		// This Option only for the below 10 size of the Array
@@ -184,7 +218,7 @@ public class ProgramPractice {
 			}
 
 		}
-		if (ifPresent == true) {
+		if (ifPresent == false) {
 			System.out.print(arr + " ");
 		} else {
 			System.out.println("No duplicate found in the given array");
@@ -353,10 +387,11 @@ public class ProgramPractice {
 		int a[][] = { { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 } };
 		int b[][] = { { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 } };
 
-		int c[][] = new int[3][3];
+		int c[][] = new int[a.length][a.length];
+		System.out.println("************Sum Of Two Matrices is********");
 
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < b.length; j++) {
 				c[i][j] = a[i][j] + b[i][j];
 				System.out.print(c[i][j]);
 			}
@@ -377,7 +412,7 @@ public class ProgramPractice {
 	}
 
 	public static void findnumberofoccurancesinaString(String str) {
-		System.out.println("Given input string is: " + str);
+		System.out.println("\nGiven input string is: " + str);
 		str = str.replaceAll("\\s", "");
 
 		char ch[] = str.toCharArray();
@@ -386,7 +421,6 @@ public class ProgramPractice {
 		HashMap<Character, Integer> chardata = new HashMap<Character, Integer>();
 
 		for (char c : ch) {
-			Integer count = 1;
 			if (chardata.containsKey(c)) {
 				chardata.put(c, chardata.get(c) + 1);
 			} else {

@@ -11,11 +11,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utils.AppConfig;
+import utils.TestUtils;
 
 import java.time.Duration;
 
-public class BasePage {
+public class BasePage extends TestUtils {
 
+	
 	public WebDriver driver = null;
 	public String browserName;
 
@@ -42,14 +44,14 @@ public class BasePage {
 			System.out.println(AppConfig.url);
 			driver.get(AppConfig.url);
 			driver.navigate().refresh();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT_TIME));
 		}
 
 	}
 
 	public WebElement gettingWebElements(By xpath) {
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT_TIME));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
 		return driver.findElement(xpath);
 	}
