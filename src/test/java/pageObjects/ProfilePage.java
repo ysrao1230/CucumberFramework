@@ -13,10 +13,14 @@ public class ProfilePage {
 	}
 
 	private final By firstName = By.cssSelector("input[formcontrolname='firstName']");
-	
+	private final By lastName = By.cssSelector("input[formcontrolname='lastName']");
 
-	public String getFIrstName() {
+
+	public String getFirstName() {
 		return basePage.driver.findElement(firstName).getAttribute("value");
+	}
+	public String getLasttName() {
+		return basePage.driver.findElement(lastName).getAttribute("value");
 	}
 
 }

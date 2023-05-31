@@ -27,6 +27,7 @@ public class ProfilePageStepDefination {
 	@Then("get the user first name, last name, email and Phone Number")
 	public void get_the_user_first_name_last_name_email_and_phone_number() {
 		System.out.println("get the user first name, last name, email and Phone Number");
-		System.out.println(profilePage.getFIrstName());
+		System.out.println(profilePage.getFirstName());
+		System.out.println(profilePage.getLasttName());
 	}
 }
