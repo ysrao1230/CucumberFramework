@@ -40,7 +40,7 @@ Feature: Login Validation
       | Username  | Password  |
       | Username1 | Password1 |
 
-@WebTesting1
+@WebTesting
   Scenario: : Get the profile Details
     Given Navigate to the application
     When close the dasboardpopup window
