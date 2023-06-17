@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src/test/java/features", glue = "StepDefination", plugin = { "pretty",
 		"html:target/cucumber.html", "json:target/cucumber.json", "junit:target/cucumberreport.xml",
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, tags = "@DataTable", publish = true)
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, tags = "@WebTesting", publish = true)
 public class TestngTestRunner extends AbstractTestNGCucumberTests {
 
 	// @Override

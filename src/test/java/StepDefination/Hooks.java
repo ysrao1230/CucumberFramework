@@ -40,7 +40,7 @@ public class Hooks {
 		System.out.println("\r\n ENd of the API Testing using hooks ");
 	}
 
-	@Before("@WebTesting1")
+	@Before("@WebTesting")
 	public void beforewebTesting() {
 		extent = new ExtentSparkReporter("spark_report.html");
 		reports.attachReporter(extent);
@@ -57,7 +57,7 @@ public class Hooks {
 		reports.createTest("Logged In").log(Status.PASS, "Application logged successfully");
 	}
 
-	@After("@WebTesting1")
+	@After("@WebTesting")
 	public void afterWebTesting() {
 		System.out.println("\r\n ENd of the Web Testing using hooks");
 		try {

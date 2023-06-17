@@ -18,7 +18,7 @@ import java.time.Duration;
 public class BasePage extends TestUtils {
 
 	
-	public WebDriver driver = null;
+	public static WebDriver driver = null;
 	public String browserName;
 
 	public void browserIntialization() {
