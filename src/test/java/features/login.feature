@@ -10,9 +10,11 @@ Feature: Login Validation
     And "statusCode" in response body is "200"
     And get the token info
 
+@DataTable
   Scenario Outline: Validate the APplication with the large set of data
     Given Login to the application with valid user name and password
-      | yamalapalli1230@gmail.com | Admin@6765 |
+      | Email    | yamalapalli1230@gmail.com |
+      | Password | Admin@6765                |
     When Capture the page titles
     Then Compare it with the expected values
 
@@ -40,7 +42,7 @@ Feature: Login Validation
       | Username  | Password  |
       | Username1 | Password1 |
 
-@WebTesting
+  @WebTesting
   Scenario: : Get the profile Details
     Given Navigate to the application
     When close the dasboardpopup window

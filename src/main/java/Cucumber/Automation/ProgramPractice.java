@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ProgramPractice {
 
@@ -23,7 +25,7 @@ public class ProgramPractice {
 //		leapYear();
 //		sumoftwoMatrices();
 //		reversingtheEachWord();
-//		separatenumberchardigit("yagdg#$%^6253536dFGHJ66473");
+		separatenumberchardigit("CMP717");
 //
 //		System.out.println("Majority of elements= " + majorityElementsinArray(a, a.length));
 //
@@ -55,11 +57,11 @@ public class ProgramPractice {
 			if (count == 1)
 				System.out.println(arra[i]);
 		}
-		
-		//Another approach
-		int ans= arra[0];
-		for(int i=1;i<length;i++) {
-			ans=ans^arra[i];
+
+		// Another approach
+		int ans = arra[0];
+		for (int i = 1; i < length; i++) {
+			ans = ans ^ arra[i];
 		}
 		System.out.println(ans);
 
@@ -272,6 +274,7 @@ public class ProgramPractice {
 	}
 
 	public static void separatenumberchardigit(String data) {
+		System.out.println("Before Splitting: " + data);
 		String number = "";
 		String alph = "";
 		String symbol = "";
@@ -285,7 +288,8 @@ public class ProgramPractice {
 				symbol = symbol + a;
 			}
 		}
-		System.out.println("Before Splitting: " + data);
+		int n =Integer.parseInt(number) + 1;
+		System.out.println(String.valueOf(n));
 		System.out.println("After Split: ");
 		System.out.println("Numbers in a String: " + number);
 		System.out.println("Alphabets in a string: " + alph);
@@ -316,6 +320,7 @@ public class ProgramPractice {
 		for (int i = ch.length - 1; i >= 0; i--)
 			System.out.print(ch[i]);
 
+	
 	}
 
 	public static void reversingtheEachWord() {
@@ -441,4 +446,5 @@ public class ProgramPractice {
 		}
 
 	}
+
 }

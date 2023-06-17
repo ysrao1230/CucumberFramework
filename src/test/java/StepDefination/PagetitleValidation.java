@@ -4,6 +4,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 
@@ -44,9 +45,14 @@ public class PagetitleValidation {
 
 	@Given("Login to the application with valid user name and password")
 	public void login_to_the_application_with_valid_user_name_and_password(DataTable data) {
+		System.out.println("Using the list of list");
 		List<List<String>> d = data.asLists();
 		System.out.println("username is=> " + d.get(0).get(0));
 		System.out.println("password is the=> " + d.get(0).get(1));
+		System.out.println("Using the Map");
+		Map<String, String> map = data.asMap(String.class, String.class);
+		System.out.println(map.get("Email"));
+		System.out.println(map.get("Password"));
 	}
 
 	@When("Capture the page title")
