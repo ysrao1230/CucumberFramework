@@ -34,7 +34,7 @@ public class javapractice {
 
         if(n==0)
             System.out.println(a);
-        for (int i=2; i<=n;i++){
+        while(n>0){
             c=a+b;
             a=b;
             b=c;

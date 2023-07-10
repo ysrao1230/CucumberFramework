@@ -14,18 +14,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ProgramPractice {
 
 	public static void main(String[] args) {
-		int a[] = { 2, 3, 4, 2, 3, 4, 4, 4, 45, 4, 4, 4, 4, 4 };
-		gettingUniqueValuesFromArray(a);
-//		findnumberofoccurancesinaString("yamalapalli srinivasa  rao");
-//		twoArraysAreEqual();
-//		largestNumberOfInputs(12, 1, 9);
-//		numberOfEvenAndOdd();
-//		duplicateValuesInaArray();
+		// shiftArrayindexposition();
+		int a[] = { 2, 3, 4, 2, 3, 4, 4, 4, 45, 4, 4, 4, 4, 4, 22 };
+		// gettingUniqueValuesFromArray(a);
+		// findnumberofoccurancesinaString("yamalapalli srinivasa rao");
+		// twoArraysAreEqual();
+		// largestNumberOfInputs(12, 1, 9);
+//numberOfEvenAndOdd();
+		// duplicateValuesInaArray();
 //		sumofDigits(567656);// 5+6+7+6+5+6=35
 //		leapYear();
 //		sumoftwoMatrices();
 //		reversingtheEachWord();
-		separatenumberchardigit("CMP717");
+		// separatenumberchardigit("CMP717!@#");
 //
 //		System.out.println("Majority of elements= " + majorityElementsinArray(a, a.length));
 //
@@ -33,7 +34,7 @@ public class ProgramPractice {
 //		missingnumberintheArray(m);
 //		reverseAString();
 //		swappingvaluewithoutthirdvariable();
-//		System.out.println("/nFibonic series given input is: " + fibinocseries(8));
+		System.out.println("/nFibonic series given input is: " + fibinocseries(8));
 
 	}
 
@@ -44,8 +45,6 @@ public class ProgramPractice {
 			System.out.print(a + " ");
 		}
 		System.out.println();
-		ArrayList<Integer> al = new ArrayList<>();
-
 		System.out.println("\nUnique value is: ");
 		for (int i = 0; i < length; i++) {
 			int count = 0;
@@ -57,13 +56,6 @@ public class ProgramPractice {
 			if (count == 1)
 				System.out.println(arra[i]);
 		}
-
-		// Another approach
-		int ans = arra[0];
-		for (int i = 1; i < length; i++) {
-			ans = ans ^ arra[i];
-		}
-		System.out.println(ans);
 
 	}
 
@@ -288,7 +280,7 @@ public class ProgramPractice {
 				symbol = symbol + a;
 			}
 		}
-		int n =Integer.parseInt(number) + 1;
+		int n = Integer.parseInt(number) + 1;
 		System.out.println(String.valueOf(n));
 		System.out.println("After Split: ");
 		System.out.println("Numbers in a String: " + number);
@@ -320,7 +312,6 @@ public class ProgramPractice {
 		for (int i = ch.length - 1; i >= 0; i--)
 			System.out.print(ch[i]);
 
-	
 	}
 
 	public static void reversingtheEachWord() {
@@ -444,7 +435,26 @@ public class ProgramPractice {
 				System.out.print(chs.getKey() + " ");
 			}
 		}
+		System.out.println();
 
+	}
+
+	public static void shiftArrayindexposition() {
+
+		// input a={1,2,3,4,5}
+		// output b={5,1,2,3,4}
+		int[] a = { 1, 2, 3, 4, 5 };
+		int[] b = new int[a.length];
+
+		b[0] = a[a.length - 1];
+		for (int i = 0; i < a.length - 1; i++) {
+			b[i + 1] = a[i];
+		}
+
+		for (int j = 0; j < b.length; j++) {
+			System.out.print(b[j] + " ");
+		}
+		System.out.println();
 	}
 
 }
