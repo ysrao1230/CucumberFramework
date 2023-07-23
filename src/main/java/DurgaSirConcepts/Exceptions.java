@@ -1,10 +1,12 @@
 package DurgaSirConcepts;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class Exceptions {
 
 	public static void main(String[] args) {
 		System.out.println("Data1");
-
 		try {
 			Thread.sleep(3000); // Interrupted Exception==> Checked Exception which is identifed by the compiler
 		} catch (InterruptedException e) {
@@ -32,6 +34,20 @@ public class Exceptions {
 
 		} catch (NullPointerException e) {
 			System.out.println(e.getMessage());
+		}
+		try {
+			String s = "data";
+			int in = Integer.parseInt(s);
+			System.out.println("Afterer Parsing integer value is: " + in);
+		} catch (NumberFormatException e) {
+			System.out.println("Enter valid input to covert string to integer");
+		}
+
+		// Handling input and output exception
+		try {
+			FileInputStream fi = new FileInputStream("");
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found to do the required operation, so please define the valid file path");
 		}
 		System.out.println("Data2");
 	}
