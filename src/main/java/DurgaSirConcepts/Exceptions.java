@@ -3,6 +3,8 @@ package DurgaSirConcepts;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import javax.management.RuntimeErrorException;
+
 public class Exceptions {
 
 	public static void main(String[] args) {
@@ -27,17 +29,10 @@ public class Exceptions {
 			System.out.println(e.getMessage());
 		}
 
+		
 		try {
-			String s = null;
-			System.out.println(s.toLowerCase()); // NullPointer exception-->Cannot invoke "String.toLowerCase()" because
-													// "s" is null
-
-		} catch (NullPointerException e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			String s = "data";
-			int in = Integer.parseInt(s);
+			String str = "data";
+			int in = Integer.parseInt(str);
 			System.out.println("Afterer Parsing integer value is: " + in);
 		} catch (NumberFormatException e) {
 			System.out.println("Enter valid input to covert string to integer");
@@ -48,7 +43,20 @@ public class Exceptions {
 			FileInputStream fi = new FileInputStream("");
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found to do the required operation, so please define the valid file path");
+		} finally {
+			System.out.println("File operation completed");
 		}
-		System.out.println("Data2");
+		// Exception handling using throws
+
+		//FileInputStream fn = new FileInputStream("");
+
+		try {
+			System.out.println("Data2");
+			String s = null;
+			System.out.println(s.toLowerCase()); // NullPointer exception-->Cannot invoke "String.toLowerCase()" because
+													// "s" is null
+		} catch (Exception e) {
+			throw new RuntimeException("Invalid arguments");
+		}
 	}
 }
