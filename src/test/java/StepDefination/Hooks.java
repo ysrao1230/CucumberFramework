@@ -68,7 +68,7 @@ public class Hooks {
 		}
 		basePage.driver.quit();
 		if (basePage.driver == null) {
-			BasePage.driver.quit();
+			basePage.driver.quit();
 			reports.createTest("Browser closing").log(Status.PASS, "Browser Has been Closed");
 		} else {
 			reports.createTest("Browser value not exist").log(Status.FAIL, "Browser not closed successfully");
@@ -81,7 +81,7 @@ public class Hooks {
 	public void addScreenshotToFailedScenario(Scenario scenario) throws IOException {
 		if (scenario.isFailed()) {
 			// Screenshot capturing
-			File sourcePath = ((TakesScreenshot) BasePage.driver).getScreenshotAs(OutputType.FILE);
+			File sourcePath = ((TakesScreenshot) basePage.driver).getScreenshotAs(OutputType.FILE);
 			byte[] fileAttach = FileUtils.readFileToByteArray(sourcePath);
 			scenario.attach(fileAttach, "image/png", "image");
 			System.out.println("Capturing the screenshot");

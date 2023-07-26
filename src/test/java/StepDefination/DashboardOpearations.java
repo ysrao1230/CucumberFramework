@@ -30,7 +30,7 @@ public class DashboardOpearations {
 	@Then("compare the email address is correct or not with the profile email address")
 	public void compare_the_email_address_is_correct_or_not_with_the_profile_email_address() {
 		System.out.println("Compare the dashboard email with the profile email address");
-		Assert.assertEquals("true", "true");
+		Assert.assertEquals("true", "false");
 	}
 
 	@Then("^get the dashboard greeting message with the user name$")
