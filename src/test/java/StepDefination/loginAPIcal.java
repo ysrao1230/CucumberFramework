@@ -10,19 +10,22 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import junit.framework.Assert;
+import pojoclasses.LoginPayload;
+import pojoclasses.LoginResponse;
 
 public class loginAPIcal {
 
 	public static String BaseURL = "https://obsapi.onpassive.com";
-	public static String loginPayload;
+	private final String emailId = "I50BSVjHhiZn%2BX%2FHTsxkirUp19xuxarvJWFwsgFYU%2Fk=";
+	private final String password = "g2%2BjZFrlfRZm01HgKZQpnQ==";
+	LoginPayload loginPayload;
 	Response req;
-	String response;
-	JsonPath jp;
+	LoginResponse response;
 
 	@Given("^Enter login payload$")
 	public void enter_login_payload() throws Throwable {
 		RestAssured.baseURI = BaseURL;
-		loginPayload = "{\"emailId\":\"I50BSVjHhiZn%2BX%2FHTsxkirUp19xuxarvJWFwsgFYU%2Fk=\",\"password\":\"g2%2BjZFrlfRZm01HgKZQpnQ==\"}";
+		loginPayload = new LoginPayload(emailId, password);
 	}
 
 	@When("^user callls the login API with http reqquest$")
@@ -32,29 +35,25 @@ public class loginAPIcal {
 
 	@Then("^validate the response code as 200$")
 	public void validate_the_response_code_as_200() throws Throwable {
-		response = req.then().log().all().extract().asString();
-		jp = new JsonPath(response);
-		String getstatus = jp.get("status");
+		response = req.then().log().all().extract().as(LoginResponse.class);
+		String getstatus = response.getStatus();
 		System.out.println(getstatus);
-		System.out.println("Status code is: " + jp.getString("statusCode"));
+		System.out.println("Status code is: " + response.getStatusCode());
 	}
 
 	@And("^\"([^\"]*)\" in response body is \"([^\"]*)\"$")
 	public void something_in_response_body_is_something(String status, String expectedvalue) throws Throwable {
-		jp = new JsonPath(response);
-		Assert.assertEquals(jp.getString(status), expectedvalue);
+		org.testng.Assert.assertEquals(response.getStatus(), expectedvalue);
 	}
 
 	@Then("{string} in the response body is {string}")
 	public void in_the_response_body_is(String message, String expectedvalue) {
-		jp = new JsonPath(response);
-		Assert.assertEquals(jp.getString(message), expectedvalue);
+		org.testng.Assert.assertEquals(response.getMessage(), expectedvalue);
 	}
 
 	@And("^get the token info$")
 	public void get_the_token_info() throws Throwable {
-		jp = new JsonPath(response);
-		System.out.println("Application access token is: " + jp.getString("data.accessToken"));
+		System.out.println("Application access token is: " + response.getData().getAccessToken());
 	}
 
 }
