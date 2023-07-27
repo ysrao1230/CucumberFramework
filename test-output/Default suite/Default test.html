@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jul 04 23:13:13 IST 2023</td>
+<td>Started on:</td><td>Thu Jul 27 23:14:11 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>95 seconds (95246 ms)</td>
+<tr><td>Total time:</td><td>10 seconds (10522 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,31 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the dash components", "Dashboard operation"</td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at StepDefination.DashboardOpearations.compare_the_email_address_is_correct_or_not_with_the_profile_email_address(DashboardOpearations.java:33)
+	at ✽.compare the email address is correct or not with the profile email address(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/dashboard.feature:7)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1949990689", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1949990689'><pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at StepDefination.DashboardOpearations.compare_the_email_address_is_correct_or_not_with_the_profile_email_address(DashboardOpearations.java:33)
+	at ✽.compare the email address is correct or not with the profile email address(file:///C:/Users/Srinivasa%20Rao/git/CucumberFramework/src/test/java/features/dashboard.feature:7)
+</pre></div></td>
+<td>0</td>
+<td>cucumberOptions.TestngTestRunner@d35dea7</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,24 +101,9 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: ": Get the profile Details", "Login Validation"</td>
+<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify the login functionality", "Login Validation"</td>
 <td></td>
-<td>22</td>
-<td>cucumberOptions.TestngTestRunner@d35dea7</td></tr>
-<tr>
-<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate the application dashboard greeting message", "Login Validation"</td>
-<td></td>
-<td>28</td>
-<td>cucumberOptions.TestngTestRunner@d35dea7</td></tr>
-<tr>
-<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Getting the dashboard", "Login Validation"</td>
-<td></td>
-<td>19</td>
-<td>cucumberOptions.TestngTestRunner@d35dea7</td></tr>
-<tr>
-<td title='cucumberOptions.TestngTestRunner.runScenario()'><b>runScenario</b><br>Test class: cucumberOptions.TestngTestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Closing the dashboard popup window", "Login Validation"</td>
-<td></td>
-<td>20</td>
+<td>6</td>
 <td>cucumberOptions.TestngTestRunner@d35dea7</td></tr>
 </table><p>
 </body>

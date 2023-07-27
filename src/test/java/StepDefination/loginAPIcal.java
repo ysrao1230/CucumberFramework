@@ -45,6 +45,12 @@ public class loginAPIcal {
 		Assert.assertEquals(jp.getString(status), expectedvalue);
 	}
 
+	@Then("{string} in the response body is {string}")
+	public void in_the_response_body_is(String message, String expectedvalue) {
+		jp = new JsonPath(response);
+		Assert.assertEquals(jp.getString(message), expectedvalue);
+	}
+
 	@And("^get the token info$")
 	public void get_the_token_info() throws Throwable {
 		jp = new JsonPath(response);
